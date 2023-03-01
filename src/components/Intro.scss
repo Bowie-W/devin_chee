@@ -1,0 +1,38 @@
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+     0%{
+        opacity: 0;
+     }
+}
+
+@keyframes shrinking {
+    0%{
+        font-size: 10em;
+    }
+    100%{
+font-size: 7em
+    }
+}
+
+.intro_main{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro_title_box{
+    animation: shrinking ease-in 5s;
+    font-size: 7rem;
+}
+
+.intro_title_box_letter{
+    animation: fadeInAnimation ease-in 3s;
+}
+
