@@ -77,31 +77,31 @@ opacity: 100%
 }
 
 .intro_title_box_letter1{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 2.5s;
 }
 .intro_title_box_letter2{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 2.75s;
 }
 .intro_title_box_letter3{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 1.5s;
 }
 .intro_title_box_letter4{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 3.25s;
 }
 .intro_title_box_letter5{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 1.5s;
 }
 .intro_title_box_letter6{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 2s;
 }
 .intro_title_box_letter7{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 3.75s;
 }
 .intro_title_box_letter8{
     animation: appearAtEnd 2.25s;
 }
 .intro_title_box_letter9{
-    animation: appearAtEnd 2.25s;
+    animation: appearAtEnd 2.5s;
 }
 
 .intro_title_box_letterBox{
@@ -140,6 +140,36 @@ opacity: 100%
     opacity: 0%;
     animation-delay: 1.5s;
 }
+.intro_title_box_letterBox span:nth-child(8){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 1.75s;
+}
+.intro_title_box_letterBox span:nth-child(9){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 2s;
+}
+.intro_title_box_letterBox span:nth-child(10){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 2.25s;
+}
+.intro_title_box_letterBox span:nth-child(11){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 2.5s;
+}
+.intro_title_box_letterBox span:nth-child(12){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 2.75s;
+}
+.intro_title_box_letterBox span:nth-child(13){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 3s;
+}
 
 .intro_title_box_letter_alternate{
     position: absolute;
@@ -161,7 +191,7 @@ opacity: 100%
 
 .intro_title_box_letter_alternate4{
     position: absolute;
-    left: 36%;
+    left: 40%;
     // display: none;
 }
 
@@ -179,7 +209,7 @@ opacity: 100%
 
 .intro_title_box_letter_alternate7{
     position: absolute;
-    left: 69%;
+    left: 73%;
     // display: none;
 }
 

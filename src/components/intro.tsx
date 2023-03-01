@@ -1,15 +1,16 @@
 import "./Intro.scss";
 
 export default function intro() {
-  const intro_alt_1 = ["a", "t", "y", "w", "o", "n"];
-  const intro_alt_2 = ["c", "e", "i", "x", "f", "u"];
-  const intro_alt_3 = ["g", "f", "o", "p", "l", "s"];
-  const intro_alt_4 = ["l", "h", "k", "n", "k", "r"];
-  const intro_alt_5 = ["r", "p", "j", "r", "q", "e"];
-  const intro_alt_6 = ["u", "r", "h", "s", "r", "p"];
-  const intro_alt_7 = ["x", "s", "g", "y", "t", "j"];
+  const intro_alt_1 = ["a", "t", "y", "w", "o", "n", "x"];
+  const intro_alt_2 = ["c", "e", "i", "x", "f", "u","s", "r"];
+  const intro_alt_3 = ["g", "f", "o"];
+  const intro_alt_4 = ["l", "h", "k", "n", "k", "r", "d", "a", "z", "b"];
+  const intro_alt_5 = ["r", "p", "j"];
+  const intro_alt_6 = ["u", "r", "h", "s", "r"];
+  const intro_alt_7 = ["x", "s", "g", "y", "t", "j", "c", "e", "i", "x", "f", "u"];
   const intro_alt_8 = ["z", "q", "c", "a", "f", "y"];
-  const intro_alt_9 = ["d", "a", "z", "b", "s", "u"];
+  const intro_alt_9 = ["d", "a", "z", "b", "s", "u", "l"];
+  
 
   return (
     <div className="intro_main">
