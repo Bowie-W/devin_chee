@@ -5,17 +5,44 @@
     100% {
         opacity: 1;
      }
-     0%{
-        opacity: 0;
-     }
 }
 
 @keyframes shrinking {
     0%{
         font-size: 10em;
+        opacity: 0%;
     }
     100%{
-font-size: 7em
+font-size: 7em;
+opacity: 100%
+    }
+}
+
+@keyframes red{
+    0%{
+        color: white;
+    }
+    100%{
+        color: red;
+    }
+}
+
+@keyframes blink50 {
+    0%{ opacity: 0%;
+        
+
+    }
+    49%{
+        opacity: 0%;
+    }
+    50%{
+        opacity: 100%;
+    }
+    74%{
+        opacity: 100%;
+    }
+    75%{
+        opacity: 0%;
     }
 }
 
@@ -30,9 +57,42 @@ font-size: 7em
 .intro_title_box{
     animation: shrinking ease-in 5s;
     font-size: 7rem;
+    display: flex;    
+    position: relative;
+    
 }
 
 .intro_title_box_letter{
-    animation: fadeInAnimation ease-in 3s;
+    // animation: fadeInAnimation ease-in 5s;
+
 }
 
+.intro_title_box span:nth-child(2){
+    animation: blink50 ease 3s;
+    opacity: 0%;
+    // color: red;
+    animation-delay: 0.25s;
+}
+.intro_title_box span:nth-child(3){
+    animation: blink50 ease 3s;
+    opacity: 0%;
+    // color: red;
+    animation-delay: 1.75s;
+}
+.intro_title_box span:nth-child(4){
+    animation: blink50 ease 3s;
+    opacity: 0%;
+    animation-delay: 1s;
+}
+
+.intro_title_box_letter_alternate{
+    position: absolute;
+    left: 2.5%;
+    // display: none;
+}
+
+.intro_title_box_letter_alternatetest{
+    position: absolute;
+    left: 2.5%;
+   
+}
