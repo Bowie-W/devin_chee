@@ -46,6 +46,17 @@ opacity: 100%
     }
 }
 
+
+@keyframes appearAtEnd{
+    0%{
+        opacity: 0%;
+    }
+    99%{opacity: 0%;};
+    100%{
+        opacity: 100%;
+    }
+}
+
 .intro_main{
     height: 100vh;
     width: 100vw;
@@ -55,7 +66,7 @@ opacity: 100%
     align-items: center;
 }
 .intro_title_box{
-    animation: shrinking ease-in 5s;
+    animation: shrinking ease-in 3s;
     font-size: 7rem;
     display: flex;    
     position: relative;
@@ -63,27 +74,48 @@ opacity: 100%
 }
 
 .intro_title_box_letter{
-    // animation: fadeInAnimation ease-in 5s;
+    animation: appearAtEnd 4s;
+
+}
+
+.intro_title_box_letter1{
+    animation: appearAtEnd 2.25s;
 
 }
 
 .intro_title_box span:nth-child(2){
-    animation: blink50 ease 3s;
+    animation: blink50 ease 1s;
     opacity: 0%;
     // color: red;
     animation-delay: 0.25s;
-}
+    z-index: 1;}
 .intro_title_box span:nth-child(3){
-    animation: blink50 ease 3s;
+    animation: blink50 ease 1s;
     opacity: 0%;
     // color: red;
-    animation-delay: 1.75s;
+    animation-delay: 0.5s;
 }
 .intro_title_box span:nth-child(4){
-    animation: blink50 ease 3s;
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 0.75s;
+}
+.intro_title_box span:nth-child(5){
+    animation: blink50 ease 1s;
     opacity: 0%;
     animation-delay: 1s;
 }
+.intro_title_box span:nth-child(6){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 1.25s;
+}
+.intro_title_box span:nth-child(7){
+    animation: blink50 ease 1s;
+    opacity: 0%;
+    animation-delay: 1.5s;
+}
+
 
 .intro_title_box_letter_alternate{
     position: absolute;
@@ -91,8 +123,8 @@ opacity: 100%
     // display: none;
 }
 
-.intro_title_box_letter_alternatetest{
+.intro_title_box_letter_alternate2{
     position: absolute;
-    left: 2.5%;
-   
+    left: 13.5%;
+    // display: none;
 }
