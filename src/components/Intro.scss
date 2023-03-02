@@ -7,25 +7,29 @@
      }
 }
 
-@keyframes shrinking {
-    0%{
-        font-size: 10em;
-        opacity: 0%;
+@keyframes blur {
+    0%,
+    90% {
+      -webkit-filter: blur(0px);
+      -moz-filter: blur(0px);
+      -o-filter: blur(0px);
+      -ms-filter: blur(0px);
     }
-    100%{
-font-size: 7em;
-opacity: 100%
+    50% {
+      -webkit-filter: blur(50px);
+      -moz-filter: blur(50px);
+      -o-filter: blur(50px);
+      -ms-filter: blur(50px);
     }
-}
+    25%{
+        -webkit-filter: blur(25px);
+        -moz-filter: blur(25px);
+        -o-filter: blur(25px);
+        -ms-filter: blur(25px);
 
-@keyframes red{
-    0%{
-        color: white;
     }
-    100%{
-        color: red;
-    }
-}
+  }
+
 
 @keyframes blink50 {
     0%{ opacity: 0%;
@@ -70,7 +74,9 @@ opacity: 100%
     justify-content: space-between;
     width: 50rem;
     position: relative;
-    
+      animation: blur 3s ease 0s;
+  -webkit-animation: blur 3s ease 0s ;
+  -moz-animation: blur 3s ease 0s;
 }
 .intro_title_box_letterBox{
     text-align: center;
