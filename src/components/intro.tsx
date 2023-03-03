@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Intro.scss";
 
 export default function intro() {
@@ -11,10 +12,17 @@ export default function intro() {
   const intro_alt_8 = ["z", "q", "c", "a", "f", "y"];
   const intro_alt_9 = ["d", "a", "z", "b", "s", "u", "l"];
   
+const [intro, setIntro] = useState("intro_title_box")
+const [introMain, setIntroMain] = useState("intro_main")
+
+setTimeout(()=>{
+    setIntro("display_none")
+    setIntroMain("display_none")
+}, 6200)
 
   return (
-    <div className="intro_main">
-      <div className="intro_title_box">
+    <div className={introMain}>
+      <div className={intro}>
         <div className="intro_title_box_letterBox">
           <span className="intro_title_box_letter1">m</span>
           {intro_alt_1.map((letter) => (
