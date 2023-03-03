@@ -11,7 +11,7 @@ function App() {
   setTimeout(()=>{
     setIntroEle(null)
     setLandPageStatus(<LandingPage/>)
-}, 6200)
+}, 6250)
 
   return (
     <div className="App">

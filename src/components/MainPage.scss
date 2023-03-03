@@ -1,0 +1,39 @@
+.mainPage{
+    &_container{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 5%;
+
+        
+    }
+    &_profilePic{
+        width: 25em;
+        height: 25em;
+        background-color: white;
+
+    }
+    &_bio_box{
+        width: 20em;
+        height: 25em;
+        background-color: white;
+        margin-left: -15%;
+        &_tag{
+
+        }
+        &_mainText{
+
+        }
+    }
+    &_audio{
+        width: 10em;
+        height: 10em;
+        background-color: white;
+        &_musicPlayer{
+
+        }
+        &_tracks{
+
+        }
+    }
+}
