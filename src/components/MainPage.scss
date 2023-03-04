@@ -1,6 +1,15 @@
+@keyframes fadeIn {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
 .mainPage{
     &_container{
-        width: 100%;
+        width: 70%;
         display: flex;
         justify-content: space-around;
         margin-top: 5%;
@@ -11,24 +20,36 @@
         width: 25em;
         height: 25em;
         background-color: white;
+        border-radius: 10px;
+        animation: fadeIn 3s ease;
 
     }
     &_bio_box{
         width: 20em;
         height: 25em;
-        background-color: white;
+        // background-color: white;
+        color: #cfcdc6;
         margin-left: -15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        animation: fadeIn 3s ease;
         &_tag{
-
+            font-size: 3rem;
         }
         &_mainText{
+         
 
         }
     }
     &_audio{
-        width: 10em;
-        height: 10em;
-        background-color: white;
+        width: 25em;
+        // height: 15em;
+        position:absolute;
+        right: 2%;
+        top: 17%;
+        animation: fadeIn 3s ease;
+        // background-color: white;
         &_musicPlayer{
 
         }
