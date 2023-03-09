@@ -14,7 +14,7 @@
     background-color:  #FAF9F6;
     animation: fadeIn 3s ease;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -23,9 +23,33 @@
 }
 
 .header_left-box{
+    width: 15%;
+    height: 100%;
 
 }
 
 .header_right-box{
+    width: 15%;
+    height: 100%;
+    margin-top: 1.75rem;
+    &_icons{
+        height: 50%;
+        width: 75%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    &_icon{
+        
+
+    width: 2rem;
+    height: 2rem;
+
+    }
+    &_email{
+        height: 50%;
+
+    }
     
 }
