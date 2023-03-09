@@ -6,7 +6,9 @@ export default function Header() : ReactElement{
 
     return(
         <div className='header_container'>
-            <h1 className='header_title'> madelusiv</h1>
+            <div className='header_left-box'></div>
+            <h1 className='header_title'> Madelusiv</h1>
+            <div className='header_right-box'></div>
         </div>
     )
 }

@@ -17,7 +17,7 @@ export default function intro() : JSX.Element {
     <div className="intro_main">
       <div className="intro_title_box">
         <div className="intro_title_box_letterBox">
-          <span className="intro_title_box_letter1">m</span>
+          <span className="intro_title_box_letter1">M</span>
           {intro_alt_1.map((letter) => (
             <span className="intro_title_box_letter_alternate">{letter}</span>
           ))}
