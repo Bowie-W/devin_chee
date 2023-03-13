@@ -1,6 +1,4 @@
 import './MainPage.scss'
-import Player from "@madzadev/audio-player";
-import "@madzadev/audio-player/dist/index.css";
 
 export default function MainPage() : JSX.Element{
 
@@ -27,7 +25,6 @@ export default function MainPage() : JSX.Element{
             </div>
             <div className='mainPage_audio'>
                 <div className='mainPage_audio_musicPlayer'>
-                    <Player trackList={tracks}/>
                 </div>
                 <div className='mainPage_audio_tracks'> </div>
             </div>
