@@ -2,7 +2,7 @@ import { ReactComponentElement, ReactElement, useState } from 'react'
 import './Homepage.scss'
 import Intro from './intro'
 import LandingPage from './LandingPage'
-import { BrowserRouter, Routes, Route} from "react-router-dom"
+
 
 function Homepage() {
 
