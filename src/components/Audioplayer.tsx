@@ -7,12 +7,16 @@ import { BsFillSkipEndFill } from "react-icons/bs";
 import { BsFillSkipStartFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-const Audioplayer = () => {
+const Audioplayer = ({tracks}) => {
 
     const [playStatus, setPlayStatus] = useState(false)
     const [duration, setDuration] = useState(0)
+    const [currentTime, setCurrentTime] = useState(0)
+    const [initialTrack, setInitialTrack] = useState('')
 
     const audioPlayer = useRef()
+    const progressBar = useRef()
+
 
     const togglePlay = () =>{
         if (playStatus === false){
@@ -25,16 +29,26 @@ const Audioplayer = () => {
         }
     }
 
+    useEffect(()=>{
+        setInitialTrack(tracks[0]?.url)
+    })
+
     useEffect( () => {
         setDuration(audioPlayer?.current?.duration)
+        // progressBar?.current?.max = 
     }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState])
 
+    const changeRange = () =>{
+        audioPlayer.current.currentTime = progressBar?.current?.value
+        progressBar?.current?.style.setProperty('seekBeforeWidth', `${progressBar?.current?.value / duration * 100}`)
+        setCurrentTime(progressBar?.current?.value)
+    }
 
   return (
     <div className="audioplayer">
       <audio
       ref={audioPlayer}
-        src="https://res.cloudinary.com/dl2liojkl/video/upload/v1671496438/dape2mz8fbiu2sizvgou.mp3"
+        src={initialTrack}
         preload="metadata"
       ></audio>
       <button className="audioplayer_button2">
@@ -51,9 +65,9 @@ const Audioplayer = () => {
         <BsFillSkipForwardFill />
       </button>
 
-      <div>0:00</div>
+      <div>{currentTime}</div>
       <div>
-        <input className="audioplayer_progressBar" type="range"></input>
+        <input className="audioplayer_progressBar" type="range" defaultValue="0" ref={progressBar} onChange={changeRange}></input>
       </div>
       <div>{duration}</div>
     </div>
