@@ -51,6 +51,8 @@ const Audioplayer = ({tracks}) => {
         src={initialTrack}
         preload="metadata"
       ></audio>
+      <h1 className="audioplayer_trackName">Track Name that is very Long i mean like very long</h1>
+      <div className="audioplayer_bottom">
       <button className="audioplayer_button2">
         <BsFillSkipBackwardFill />
       </button>
@@ -70,6 +72,8 @@ const Audioplayer = ({tracks}) => {
         <input className="audioplayer_progressBar" type="range" defaultValue="0" ref={progressBar} onChange={changeRange}></input>
       </div>
       <div>{duration}</div>
+      </div>
+   
     </div>
   );
 };

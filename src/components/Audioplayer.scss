@@ -1,11 +1,30 @@
 @use '../../styles/progressBarVariables' as *;
 
 .audioplayer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+   
     width: 21.5rem;
+    background-color: purple;
+    height: 10rem;
+    width: 24rem;
+    padding: 0 1rem;
+    border-radius: 10px;
+    &_trackName{
+        height: 50%;
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+        overflow-x: hidden;
+        overflow-y: hidden;
+       
 
+    }
+
+    &_bottom{
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     &_button{
         border-radius: 100%;
         width: 3rem;
