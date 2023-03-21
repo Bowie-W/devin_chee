@@ -10,7 +10,6 @@ export default function MainPage({ profile, tracks }): JSX.Element {
     <div className="mainPage_container">
       <div className="mainPage_profile">
         {" "}
-        <img className="mainPage_profilePic" src={profile.picture}></img>
         <div className="mainPage_bio_box">
           <h2 className="mainPage_bio_box_tag">de_vinchee</h2>
           <p className="mainPage_bio_box_mainText">
@@ -23,13 +22,11 @@ export default function MainPage({ profile, tracks }): JSX.Element {
             culpa qui officia deserunt mollit anim id est laborum.
           </p>
         </div>
+        <img className="mainPage_profilePic" src={profile.picture}></img>
+      
       </div>
-
       <div className="mainPage_audio">
         <Audioplayer tracks={tracks} />
-      </div>
-      <div className="blank">
-aksjdb
       </div>
     </div>
   );
