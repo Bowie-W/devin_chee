@@ -2,12 +2,12 @@
 
 .audioplayer{
    
-    width: 21.5rem;
     background-color: purple;
     height: 10rem;
     width: 24rem;
     padding: 0 1rem;
     border-radius: 10px;
+    position: sticky;
     &_trackName{
         height: 50%;
         display: flex;
