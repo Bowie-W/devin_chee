@@ -16,16 +16,19 @@ const Audioplayer = ({tracks}) => {
 
     const audioPlayer = useRef()
     const progressBar = useRef()
+    const animationRef = useRef()
 
 
     const togglePlay = () =>{
         if (playStatus === false){
             setPlayStatus(true)
             audioPlayer.current.play()
+            animationRef.current = requestAnimationFrame(playing)
         }
         else {
             setPlayStatus(false)
             audioPlayer.current.pause()
+            cancelAnimationFrame(animationRef.current)
         }
     }
 
@@ -34,14 +37,34 @@ const Audioplayer = ({tracks}) => {
     })
 
     useEffect( () => {
-        setDuration(audioPlayer?.current?.duration)
-        // progressBar?.current?.max = 
+        const seconds = Math.floor(audioPlayer.current.duration)
+        setDuration(Math.floor(audioPlayer.current.duration))
+        progressBar.current.max = seconds
     }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState])
 
     const changeRange = () =>{
         audioPlayer.current.currentTime = progressBar?.current?.value
-        progressBar?.current?.style.setProperty('seekBeforeWidth', `${progressBar?.current?.value / duration * 100}`)
+changeTime()
+    }
+
+    const calcTime = (secs : number) => {
+        const minutes = Math.floor(secs/60)
+        const retrMins = minutes < 10 ? `0${minutes}` : `${minutes}`
+        const seconds =Math.floor( secs % 60)
+        const retrSecs = seconds < 10 ? `0${seconds}` : `${seconds}`
+        return `${retrMins}:${retrSecs}` 
+    }
+
+    const playing = ()=> {
+        progressBar.current.value = audioPlayer.current.currentTime
+changeTime()
+animationRef.current = requestAnimationFrame(playing)
+    }
+
+    const changeTime = () => {
+        progressBar?.current?.style.setProperty('seekBeforeWidth', `${progressBar?.current?.value / duration * 100}%`)
         setCurrentTime(progressBar?.current?.value)
+
     }
 
   return (
@@ -67,11 +90,11 @@ const Audioplayer = ({tracks}) => {
         <BsFillSkipForwardFill />
       </button>
 
-      <div>{currentTime}</div>
+      <div>{calcTime( currentTime)}</div>
       <div>
         <input className="audioplayer_progressBar" type="range" defaultValue="0" ref={progressBar} onChange={changeRange}></input>
       </div>
-      <div>{duration}</div>
+      <div>{calcTime(duration)}</div>
       </div>
    
     </div>
