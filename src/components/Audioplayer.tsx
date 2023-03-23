@@ -38,7 +38,7 @@ const Audioplayer = ({ tracks }) => {
   }, [tracks]);
 
   const nextTrack = () => {
-    console.log(tracks.indexOf(initialTrack))
+
     let trackIndex = tracks.indexOf(initialTrack);
     if (trackIndex !== tracks.length - 1) {
       setInitialTrack(tracks[trackIndex + 1]);
@@ -51,6 +51,23 @@ const Audioplayer = ({ tracks }) => {
       setTrackDescript(tracks[0]?.descript);
     }
   };
+
+  const prevTrack = () =>{
+
+    let trackIndex = tracks.indexOf(initialTrack);
+    console.log(tracks[tracks.length - 1])
+    if (trackIndex !== 0) {
+        setInitialTrack(tracks[trackIndex - 1]);
+        setInitialTrackUrl(tracks[trackIndex - 1]?.url);
+        setTrackDescript(tracks[trackIndex+ - 1]?.descript);
+    }
+    else {
+        setInitialTrack(tracks[tracks.length - 1]);
+        setInitialTrackUrl(tracks[tracks.length - 1]?.url);
+        setTrackDescript(tracks[tracks.length - 1]?.descript);
+    }
+
+  }
 
   useEffect(() => {
     const seconds = Math.floor(audioPlayer.current.duration);
@@ -92,7 +109,7 @@ const Audioplayer = ({ tracks }) => {
         Track Name that is very Long i mean like very long
       </h1>
       <div className="audioplayer_bottom">
-        <button className="audioplayer_button2">
+        <button className="audioplayer_button2" onClick={prevTrack}>
           <BsFillSkipBackwardFill />
         </button>
 
