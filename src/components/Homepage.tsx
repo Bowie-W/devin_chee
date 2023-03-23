@@ -8,6 +8,7 @@ import {
 import "./Homepage.scss";
 import Intro from "./intro";
 import LandingPage from "./LandingPage";
+import Projects from "./Projects";
 
 function Homepage() {
   const [introEle, setIntroEle] = useState<JSX.Element | null>(<Intro />);
@@ -42,6 +43,7 @@ function Homepage() {
       <div className="homepage_intro">{introEle}</div>
       <div className={pageDisplay}>
         <LandingPage profile={profile} tracks={tracks} />
+      <Projects/>
       </div>
    
     </div>

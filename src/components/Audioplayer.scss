@@ -12,6 +12,7 @@
     &_trackName{
         height: 50%;
         display: flex;
+        
         align-items: center;
         font-size: 2rem;
         overflow-x: hidden;
@@ -41,9 +42,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-
-        // audioplayer_trackDescript-text
-
         
     }
     &_trackDescript{

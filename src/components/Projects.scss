@@ -1,0 +1,48 @@
+.projects{
+    &_container{
+
+    }
+    &_title{
+        margin: 2rem 0 0 4rem;
+    }
+    &_project1{
+        &-container{
+            margin: 2rem 0 0 4rem;
+            display: flex;
+            &-link{
+                width: 26rem;
+            }
+            &-pic{
+                width: 27rem
+            }
+            &-titleBox{
+
+            }
+            &-title{
+                font-size: 3rem;
+                text-align: center;
+            }
+            &-subtitle{
+                font-size: 2rem;
+                text-align: center;
+            }
+            &-rightBox{
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                align-items: center;
+                margin-left: 2.5rem;
+            }
+            &-credit{
+                margin: 4rem 0 0 0;
+            }
+            &-descript{
+
+            }
+     
+        }
+    }
+}
+
