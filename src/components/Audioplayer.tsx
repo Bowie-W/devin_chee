@@ -13,6 +13,7 @@ const Audioplayer = ({tracks}) => {
     const [duration, setDuration] = useState(0)
     const [currentTime, setCurrentTime] = useState(0)
     const [initialTrack, setInitialTrack] = useState('')
+    const [trackDescript, setTrackDescript] = useState('')
 
     const audioPlayer = useRef()
     const progressBar = useRef()
@@ -95,6 +96,12 @@ animationRef.current = requestAnimationFrame(playing)
         <input className="audioplayer_progressBar" type="range" defaultValue="0" ref={progressBar} onChange={changeRange}></input>
       </div>
       <div>{calcTime(duration)}</div>
+      </div>
+      <div className="audioplayer_trackDescript-box">
+        <p className="audioplayer_trackDescript-text">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+
       </div>
    
     </div>
