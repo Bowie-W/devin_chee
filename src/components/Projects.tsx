@@ -28,11 +28,11 @@ function Projects() {
           </div>
 
           <h2 className="projects_project1-container-credit"> Sound-Designer</h2>
-          {/* <p className="projects_project1-container-descript">
+          <p className="projects_project1-container-descript">
             A mix-media interactive fashion show! Immerse yourself in a complete
             visual and auditory experience. This surreal sci-fi world is created
             through a fusion of art forms and a textural ambient soundscape.
-          </p> */}
+          </p>
         </div>
       </div>
     </div>
