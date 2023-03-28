@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+
 .projects{
     &_container{
 
     }
     &_title{
         margin: 2rem 0 0 4rem;
+
     }
     &_project1{
         &-container{
@@ -17,10 +20,12 @@
             }
             &-titleBox{
 
+                
             }
             &-title{
                 font-size: 3rem;
                 text-align: center;
+                font-family: 'Rubik Glitch', cursive;
             }
             &-subtitle{
                 font-size: 2rem;
@@ -28,6 +33,8 @@
             }
             &-rightBox{
                 width: 30%;
+                height: 20rem;
+                margin: 8rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;

@@ -3,13 +3,24 @@ import { Link } from "react-router-dom";
 import "./Projects.scss";
 
 function Projects() {
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            console.log(entry)
+        })
+    })
+    const hiddenEles = document.querySelectorAll('.hidden')
+    hiddenEles.forEach((el) => observer.observe(el))
+
+
+
   return (
     <div className="projects_container">
-      <h1 className="projects_title">Projects</h1>
+      <h1 className="projects_title hidden">Projects</h1>
       <div className="projects_project1-container">
         <Link
           to="https://www.forze-volume1.com/"
-          className="projects_project1-container-link"
+          className="projects_project1-container-link hidden"
         >
           <img
             className="projects_project1-container-pic"
@@ -17,7 +28,7 @@ function Projects() {
           ></img>
         </Link>
 
-        <div className="projects_project1-container-rightBox">
+        <div className="projects_project1-container-rightBox hidden">
           <div className="projects_project1-container-titleBox">
             <h1 className="projects_project1-container-title">
               For: Ze Volume 1
