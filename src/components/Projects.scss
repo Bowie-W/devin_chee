@@ -1,55 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 
-.projects{
-    &_container{
+.projects {
+  &_container {
+  }
+  &_title {
+    margin: 2rem 0 0 4rem;
+  }
+  &_project1 {
+    &-container {
+      margin: 2rem 0 0 4rem;
+      display: flex;
+      &-link {
+        width: 26rem;
+      }
+      &-pic {
+        width: 27rem;
+      }
+      &-titleBox {
+      }
+      &-title {
+        font-size: 3rem;
+        text-align: center;
+        font-family: "Rubik Glitch", cursive;
+      }
+      &-subtitle {
+        font-size: 2rem;
+        text-align: center;
+      }
+      &-rightBox {
+        width: 30%;
+        height: 20rem;
+        margin: 8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
+        align-items: center;
+        margin-left: 2.5rem;
+      }
+      &-credit {
+        margin: 3rem 0;
+      }
+      &-descript {
+        text-align: center;
+      }
     }
-    &_title{
-        margin: 2rem 0 0 4rem;
-
-    }
-    &_project1{
-        &-container{
-            margin: 2rem 0 0 4rem;
-            display: flex;
-            &-link{
-                width: 26rem;
-            }
-            &-pic{
-                width: 27rem
-            }
-            &-titleBox{
-
-                
-            }
-            &-title{
-                font-size: 3rem;
-                text-align: center;
-                font-family: 'Rubik Glitch', cursive;
-            }
-            &-subtitle{
-                font-size: 2rem;
-                text-align: center;
-            }
-            &-rightBox{
-                width: 30%;
-                height: 20rem;
-                margin: 8rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-
-                align-items: center;
-                margin-left: 2.5rem;
-            }
-            &-credit{
-                margin: 3rem 0 ;
-            }
-            &-descript{
-text-align: center;
-            }
-     
-        }
-    }
+  }
 }
 
+.hidden{
+    opacity: 0%;
+    filter: blur(5px);
+    transition: all 1.25s;
+}
+.show{
+    opacity: 100%;
+    filter: blur(0px);
+}

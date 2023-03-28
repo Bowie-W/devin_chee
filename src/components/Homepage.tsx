@@ -5,6 +5,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import Footer from "./Footer";
 import "./Homepage.scss";
 import Intro from "./intro";
 import LandingPage from "./LandingPage";
@@ -15,7 +16,7 @@ function Homepage() {
   const [landPageStatus, setLandPageStatus] = useState<JSX.Element | null>(
     null
   );
-  const [pageDisplay, setPageDisplay] = useState("homepage_landingpage-hidden")
+  const [pageDisplay, setPageDisplay] = useState("homepage_landingpage-hidden");
 
   const [profile, setProfile] = useState({});
   const [tracks, setTracks] = useState([]);
@@ -34,8 +35,7 @@ function Homepage() {
 
   setTimeout(() => {
     setIntroEle(null);
-    setPageDisplay("homepage_landingpage")
-    
+    setPageDisplay("homepage_landingpage");
   }, 6250);
 
   return (
@@ -43,9 +43,9 @@ function Homepage() {
       <div className="homepage_intro">{introEle}</div>
       <div className={pageDisplay}>
         <LandingPage profile={profile} tracks={tracks} />
-      <Projects/>
+        <Projects />
+        <Footer/>
       </div>
-   
     </div>
   );
 }
