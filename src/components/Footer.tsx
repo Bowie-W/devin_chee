@@ -3,7 +3,11 @@ import './Footer.scss'
 
 function Footer() {
   return (
-    <div>Footer</div>
+    <div className='footer_container'>
+        <h1 className='footer_title'>
+            Site by Bowie W.
+        </h1>
+    </div>
   )
 }
 

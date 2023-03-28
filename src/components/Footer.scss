@@ -1,0 +1,16 @@
+.footer{
+    &_container{
+        height: 3rem;
+        background-color: black;
+        margin-top: 6rem;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+    &_title{
+        font-size: 1.25rem;
+        color: whitesmoke;
+        margin: 0 1rem 0 0;
+        font-weight: 400;
+    }
+}
