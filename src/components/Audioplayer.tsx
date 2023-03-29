@@ -14,6 +14,7 @@ const Audioplayer = ({ tracks }) => {
   const [initialTrack, setInitialTrack] = useState("");
   const [initialTrackUrl, setInitialTrackUrl] = useState("");
   const [trackDescript, setTrackDescript] = useState("");
+  const [trackName, setTrackName] = useState('')
 
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -35,6 +36,7 @@ const Audioplayer = ({ tracks }) => {
     setInitialTrack(tracks[0]);
     setInitialTrackUrl(tracks[0]?.url);
     setTrackDescript(tracks[0]?.descript);
+    setTrackName(tracks[0]?.title)
   }, [tracks]);
 
   const nextTrack = () => {
@@ -43,12 +45,14 @@ const Audioplayer = ({ tracks }) => {
     if (trackIndex !== tracks.length - 1) {
       setInitialTrack(tracks[trackIndex + 1]);
       setInitialTrackUrl(tracks[trackIndex + 1]?.url);
-      setTrackDescript(tracks[trackIndex+ + 1]?.descript);
+      setTrackDescript(tracks[trackIndex + 1]?.descript);
+      setTrackName(tracks[trackIndex + 1]?.title)
     } 
     else {
       setInitialTrack(tracks[0]);
       setInitialTrackUrl(tracks[0]?.url);
       setTrackDescript(tracks[0]?.descript);
+      setTrackName(tracks[0]?.title)
     }
   };
 
@@ -59,12 +63,14 @@ const Audioplayer = ({ tracks }) => {
     if (trackIndex !== 0) {
         setInitialTrack(tracks[trackIndex - 1]);
         setInitialTrackUrl(tracks[trackIndex - 1]?.url);
-        setTrackDescript(tracks[trackIndex+ - 1]?.descript);
+        setTrackDescript(tracks[trackIndex - 1]?.descript);
+        setTrackName(tracks[trackIndex - 1]?.title)
     }
     else {
         setInitialTrack(tracks[tracks.length - 1]);
         setInitialTrackUrl(tracks[tracks.length - 1]?.url);
         setTrackDescript(tracks[tracks.length - 1]?.descript);
+        setTrackName(tracks[tracks.length - 1]?.title)
     }
 
   }
@@ -106,7 +112,7 @@ const Audioplayer = ({ tracks }) => {
     <div className="audioplayer">
       <audio ref={audioPlayer} src={initialTrackUrl} preload="metadata"></audio>
       <h1 className="audioplayer_trackName">
-        Track Name that is very Long i mean like very long
+        {trackName}
       </h1>
       <div className="audioplayer_bottom">
         <button className="audioplayer_button2" onClick={prevTrack}>
