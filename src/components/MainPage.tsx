@@ -9,10 +9,7 @@ export default function MainPage({ profile, tracks }): JSX.Element {
   return (
     <div className="mainPage_container">
       <div className="mainPage_profile">
-        {" "}
-        <div className="mainPage_bio_box">
-          <h2 className="mainPage_bio_box_tag">de_vinchee</h2>
-          <p className="mainPage_bio_box_mainText">
+     
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -20,14 +17,11 @@ export default function MainPage({ profile, tracks }): JSX.Element {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-        <img className="mainPage_profilePic" src={profile.picture}></img>
       
       </div>
-      <div className="mainPage_audio">
+      {/* <div className="mainPage_audio">
         <Audioplayer tracks={tracks} />
-      </div>
+      </div> */}
     </div>
   );
 }

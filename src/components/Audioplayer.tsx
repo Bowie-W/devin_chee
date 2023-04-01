@@ -14,7 +14,8 @@ const Audioplayer = ({ tracks }) => {
   const [initialTrack, setInitialTrack] = useState("");
   const [initialTrackUrl, setInitialTrackUrl] = useState("");
   const [trackDescript, setTrackDescript] = useState("");
-  const [trackName, setTrackName] = useState('')
+  const [trackName, setTrackName] = useState("");
+  const [toggleStatus, setToggleStatus] = useState(false)
 
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -22,64 +23,82 @@ const Audioplayer = ({ tracks }) => {
 
   const togglePlay = () => {
     if (playStatus === false) {
+ 
       setPlayStatus(true);
+
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(playing);
     } else {
+
       setPlayStatus(false);
+
       audioPlayer.current.pause();
       cancelAnimationFrame(animationRef.current);
     }
   };
+  console.log(playStatus)
+
+  const hidePlayer = () => {
+    if (toggleStatus === false){
+      setToggleStatus(true)
+    } else {
+      setToggleStatus(false)
+    }
+  }
 
   useEffect(() => {
     setInitialTrack(tracks[0]);
     setInitialTrackUrl(tracks[0]?.url);
     setTrackDescript(tracks[0]?.descript);
-    setTrackName(tracks[0]?.title)
+    setTrackName(tracks[0]?.title);
   }, [tracks]);
 
   const nextTrack = () => {
-
     let trackIndex = tracks.indexOf(initialTrack);
     if (trackIndex !== tracks.length - 1) {
       setInitialTrack(tracks[trackIndex + 1]);
       setInitialTrackUrl(tracks[trackIndex + 1]?.url);
       setTrackDescript(tracks[trackIndex + 1]?.descript);
-      setTrackName(tracks[trackIndex + 1]?.title)
-    } 
-    else {
+      setTrackName(tracks[trackIndex + 1]?.title);
+    } else {
       setInitialTrack(tracks[0]);
       setInitialTrackUrl(tracks[0]?.url);
       setTrackDescript(tracks[0]?.descript);
-      setTrackName(tracks[0]?.title)
+      setTrackName(tracks[0]?.title);
     }
   };
 
-  const prevTrack = () =>{
-
+  const prevTrack = () => {
     let trackIndex = tracks.indexOf(initialTrack);
-    console.log(tracks[tracks.length - 1])
+    console.log(tracks[tracks.length - 1]);
     if (trackIndex !== 0) {
-        setInitialTrack(tracks[trackIndex - 1]);
-        setInitialTrackUrl(tracks[trackIndex - 1]?.url);
-        setTrackDescript(tracks[trackIndex - 1]?.descript);
-        setTrackName(tracks[trackIndex - 1]?.title)
-    }
-    else {
-        setInitialTrack(tracks[tracks.length - 1]);
-        setInitialTrackUrl(tracks[tracks.length - 1]?.url);
-        setTrackDescript(tracks[tracks.length - 1]?.descript);
-        setTrackName(tracks[tracks.length - 1]?.title)
-    }
+      setInitialTrack(tracks[trackIndex - 1]);
+      setInitialTrackUrl(tracks[trackIndex - 1]?.url);
+      setTrackDescript(tracks[trackIndex - 1]?.descript);
+      setTrackName(tracks[trackIndex - 1]?.title);
 
-  }
+    } else {
+      setInitialTrack(tracks[tracks.length - 1]);
+      setInitialTrackUrl(tracks[tracks.length - 1]?.url);
+      setTrackDescript(tracks[tracks.length - 1]?.descript);
+      setTrackName(tracks[tracks.length - 1]?.title);
+
+    }
+  };
 
   useEffect(() => {
     const seconds = Math.floor(audioPlayer.current.duration);
     setDuration(Math.floor(audioPlayer.current.duration));
     progressBar.current.max = seconds;
-  }, [audioPlayer?.current?.loadedmetadata, audioPlayer?.current?.readyState, nextTrack]);
+  }, [
+    audioPlayer?.current?.loadedmetadata,
+    audioPlayer?.current?.readyState,
+    nextTrack,
+    initialTrack
+  ]);
+
+  console.log(initialTrack)
+  console.log(duration)
 
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar?.current?.value;
@@ -111,35 +130,39 @@ const Audioplayer = ({ tracks }) => {
   return (
     <div className="audioplayer">
       <audio ref={audioPlayer} src={initialTrackUrl} preload="metadata"></audio>
-      <h1 className="audioplayer_trackName">
-        {trackName}
-      </h1>
+      <h1 className="audioplayer_trackName">{trackName}</h1>
       <div className="audioplayer_bottom">
-        <button className="audioplayer_button2" onClick={prevTrack}>
-          <BsFillSkipBackwardFill />
-        </button>
+        <div className="audioplayer_buttonBox">
+          <button className="audioplayer_button2" onClick={prevTrack}>
+            <BsFillSkipBackwardFill />
+          </button>
 
-        <button className="audioplayer_button" onClick={togglePlay}>
-          {" "}
-          <IconContext.Provider value={{ className: "shared-class", size: 28 }}>
-            <HiPlayPause />
-          </IconContext.Provider>
-        </button>
-        <button className="audioplayer_button2" onClick={nextTrack}>
-          <BsFillSkipForwardFill />
-        </button>
-
-        <div>{calcTime(currentTime)}</div>
-        <div>
-          <input
-            className="audioplayer_progressBar"
-            type="range"
-            defaultValue="0"
-            ref={progressBar}
-            onChange={changeRange}
-          ></input>
+          <button className="audioplayer_button" onClick={togglePlay}>
+            {" "}
+            <IconContext.Provider
+              value={{ className: "shared-class", size: 28 }}
+            >
+              <HiPlayPause />
+            </IconContext.Provider>
+          </button>
+          <button className="audioplayer_button2" onClick={nextTrack}>
+            <BsFillSkipForwardFill />
+          </button>
         </div>
-        <div>{calcTime(duration)}</div>
+
+        <div className="audioplayer_progBox">
+          <div>{calcTime(currentTime)}</div>
+          <div>
+            <input
+              className="audioplayer_progressBar"
+              type="range"
+              defaultValue="0"
+              ref={progressBar}
+              onChange={changeRange}
+            ></input>
+          </div>
+          <div>{calcTime(duration)}</div>
+        </div>
       </div>
       <div className="audioplayer_trackDescript-box">
         <p className="audioplayer_trackDescript-text">{trackDescript}</p>
