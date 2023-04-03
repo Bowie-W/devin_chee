@@ -2,6 +2,7 @@ import "./MainPage.scss";
 import axios from "axios";
 import { useEffect } from "react";
 import { Audioplayer } from "./Audioplayer";
+import Projects from "./Projects";
 
 export default function MainPage({ profile, tracks }): JSX.Element {
   console.log(profile.picture);
@@ -19,6 +20,7 @@ export default function MainPage({ profile, tracks }): JSX.Element {
             culpa qui officia deserunt mollit anim id est laborum.
       
       </div>
+      <Projects/>
       {/* <div className="mainPage_audio">
         <Audioplayer tracks={tracks} />
       </div> */}

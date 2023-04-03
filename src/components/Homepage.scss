@@ -1,7 +1,10 @@
+@use '../../styles/typography' as *;
+
 .homepage{
 
     &_intro{
         // position: relative;
+        font-family: 'Orbitron', sans-serif;
 
     }
     &_landingpage{

@@ -1,6 +1,12 @@
-.landingPage_main{
-    width: 100%;
-    height: 100vh;
-    z-index: -1;
-
+.landingPage{
+    &_main{
+        width: 100%;
+        height: 100vh;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        perspective: 10px;
+        z-index: -1;
+        
+    
+    }
 }
