@@ -19,10 +19,17 @@ function Homepage() {
 
   const [profile, setProfile] = useState({});
   const [tracks, setTracks] = useState([]);
+  const [eps, setEPs] = useState([])
 
   useEffect(() => {
     axios.get("http://localhost:3030/tracks").then((response) => {
       setTracks(response.data);
+    });
+  }, []);
+
+  useEffect(() => {
+    axios.get("http://localhost:3030/EPs").then((response) => {
+      setEPs(response.data);
     });
   }, []);
 
@@ -41,7 +48,7 @@ function Homepage() {
     <div className="homepage">
       <div className="homepage_intro">{introEle}</div>
       <div className={pageDisplay}>
-        <LandingPage profile={profile} tracks={tracks} />
+        <LandingPage profile={profile} tracks={tracks} eps={eps}/>
       </div>
     </div>
   );

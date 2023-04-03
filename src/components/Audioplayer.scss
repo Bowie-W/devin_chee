@@ -4,11 +4,16 @@
    color: whitesmoke;
     background-color: purple;
     height: 10rem;
-    width: 20rem;
+    width: 50rem;
 
     border-radius: 10px;
-    position: sticky;   
-    top: 15%;
+    // position: absolute;   
+    // top: 20%;
+    // left: 100%;
+    // right: 5%;
+    &_top{
+
+    }
     
     &_trackName{
         height: 40%;
@@ -25,7 +30,7 @@
         height: 50%;
         width: 100%;
         display: flex;
-        flex-direction: column;
+        // flex-direction: column;
         justify-content: space-between;
         align-items: center;
         padding: 0 0 0.15rem 0;
@@ -33,6 +38,9 @@
     &_buttonBox{
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        width: 8.25rem;
+        margin-left: 1rem;
     }
     &_button{
         border-radius: 100%;
@@ -45,8 +53,8 @@
     }
     &_button2{
         border-radius: 100%;
-        width: 2rem;
-        height: 2rem;
+        width: 1.75rem;
+        height: 1.75rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -68,6 +76,9 @@
         justify-content: space-between;
         width: 100%;
         padding: 0 1rem;
+    }
+    &_progressBarBox{
+        width: 70%;
     }
     &_progressBar{
         appearance: none;

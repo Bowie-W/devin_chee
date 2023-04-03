@@ -15,36 +15,38 @@ const Audioplayer = ({ tracks }) => {
   const [initialTrackUrl, setInitialTrackUrl] = useState("");
   const [trackDescript, setTrackDescript] = useState("");
   const [trackName, setTrackName] = useState("");
-  const [toggleStatus, setToggleStatus] = useState(false)
+  const [toggleStatus, setToggleStatus] = useState(false);
 
   const audioPlayer = useRef();
   const progressBar = useRef();
   const animationRef = useRef();
+  const canvasRef = useRef();
+  const source = useRef();
+  const analyser = useRef();
 
   const togglePlay = () => {
     if (playStatus === false) {
- 
       setPlayStatus(true);
+      let audioContext = new AudioContext();
 
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(playing);
     } else {
-
       setPlayStatus(false);
 
       audioPlayer.current.pause();
       cancelAnimationFrame(animationRef.current);
     }
   };
-  console.log(playStatus)
+  console.log(playStatus);
 
   const hidePlayer = () => {
-    if (toggleStatus === false){
-      setToggleStatus(true)
+    if (toggleStatus === false) {
+      setToggleStatus(true);
     } else {
-      setToggleStatus(false)
+      setToggleStatus(false);
     }
-  }
+  };
 
   useEffect(() => {
     setInitialTrack(tracks[0]);
@@ -76,13 +78,11 @@ const Audioplayer = ({ tracks }) => {
       setInitialTrackUrl(tracks[trackIndex - 1]?.url);
       setTrackDescript(tracks[trackIndex - 1]?.descript);
       setTrackName(tracks[trackIndex - 1]?.title);
-
     } else {
       setInitialTrack(tracks[tracks.length - 1]);
       setInitialTrackUrl(tracks[tracks.length - 1]?.url);
       setTrackDescript(tracks[tracks.length - 1]?.descript);
       setTrackName(tracks[tracks.length - 1]?.title);
-
     }
   };
 
@@ -94,11 +94,11 @@ const Audioplayer = ({ tracks }) => {
     audioPlayer?.current?.loadedmetadata,
     audioPlayer?.current?.readyState,
     nextTrack,
-    initialTrack
+    initialTrack,
   ]);
 
-  console.log(initialTrack)
-  console.log(duration)
+  console.log(initialTrack);
+  console.log(duration);
 
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar?.current?.value;
@@ -130,7 +130,12 @@ const Audioplayer = ({ tracks }) => {
   return (
     <div className="audioplayer">
       <audio ref={audioPlayer} src={initialTrackUrl} preload="metadata"></audio>
-      <h1 className="audioplayer_trackName">{trackName}</h1>
+      <div className="audioplayer_top">
+        {" "}
+        <h1 className="audioplayer_trackName">{trackName}</h1>
+        <canvas ref={canvasRef} width={200} height={50}></canvas>
+      </div>
+
       <div className="audioplayer_bottom">
         <div className="audioplayer_buttonBox">
           <button className="audioplayer_button2" onClick={prevTrack}>
@@ -152,7 +157,7 @@ const Audioplayer = ({ tracks }) => {
 
         <div className="audioplayer_progBox">
           <div>{calcTime(currentTime)}</div>
-          <div>
+          <div className="audioplayer_progressBarBox">
             <input
               className="audioplayer_progressBar"
               type="range"

@@ -13,35 +13,45 @@
 .mainPage{
     &_container{
         width: 100%;
-        height: 200vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        // margin-top: 20rem;
-        align-items: center;
+        height: fit-content;
+    
+        background-color: #001253;
         // overflow-y: scroll;
         // z-index: -2;
 
         
     }
+    &_container::-webkit-scrollbar {
+        display: none;
+      }
+      
+    &_parallax{
+        width: 80%;
+        // height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
     &_profile{
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 50%;
-        height: 100%;
-        margin: -6rem 0 0 0;
+        width: 100%;
+        height: 100vh;
         color: whitesmoke;
-        font-family: 'Orbitron', sans-serif;
         font-size: 1.5rem;
+    }
+    &_profile span{
+        width: 50%;
     }
    
    
     &_audio{
-        height: 200vh;
-        position:absolute;
-        right: 1%;
-        top: 14%;
+        // height: 100vh;
+        // position:absolute;
+        // right: 1%;
+        // top: 14%;
         animation: 3s fadeIn ease;
         &_musicPlayer{
 
