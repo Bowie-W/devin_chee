@@ -7,17 +7,17 @@ import { BsFillSkipEndFill } from "react-icons/bs";
 import { BsFillSkipStartFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-const Audioplayer = ({ eps }) => {
+const Audioplayer = ({ tracklist }) => {
   const [playStatus, setPlayStatus] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
-  const [initialTrack, setInitialTrack] = useState("");
-  const [initialTrackUrl, setInitialTrackUrl] = useState("");
+  const [currentTrack, setCurrentTrack] = useState("");
+  const [currentTrackUrl, setCurrentTrackUrl] = useState("");
   const [trackDescript, setTrackDescript] = useState("");
   const [trackName, setTrackName] = useState("");
   const [toggleStatus, setToggleStatus] = useState(false);
   const [epForPlayer, setEpForPlayer] = useState([])
-  console.log(eps)
+  const [primedTrack, setPrimedTrack] = useState([])
 
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -40,7 +40,6 @@ const Audioplayer = ({ eps }) => {
       cancelAnimationFrame(animationRef.current);
     }
   };
-  console.log(playStatus);
 
   const hidePlayer = () => {
     if (toggleStatus === false) {
@@ -51,44 +50,48 @@ const Audioplayer = ({ eps }) => {
   };
 
   useEffect(() => {
-    setEpForPlayer(eps)
-  }, [])
+    if(tracklist){  
+      setCurrentTrack(tracklist[0]);
+      setCurrentTrackUrl(tracklist[0].trackUrl);
+      // setTrackDescript(tracklist?.tracks[0]?.trackDescript);
+      // setTrackName(tracklist?.tracks[0]?.trackTitle);
+    setCurrentTrack(tracklist[0])
+    }
+    
+  
+ 
+  }, [currentTrack]);
 
-  useEffect(() => {
-    setInitialTrack(eps?.tracks[0]);
-    setInitialTrackUrl(eps?.tracks[0]?.url);
-    setTrackDescript(eps?.tracks[0]?.descript);
-    setTrackName(eps?.tracks[0]?.title);
-  }, [initialTrack]);
+  console.log(currentTrack)
 
   const nextTrack = () => {
-    let trackIndex = eps?.tracks.indexOf(initialTrack);
-    if (trackIndex !== eps?.tracks.length - 1) {
-      setInitialTrack(eps?.tracks[trackIndex + 1]);
-      setInitialTrackUrl(eps?.tracks[trackIndex + 1]?.url);
-      setTrackDescript(eps?.tracks[trackIndex + 1]?.descript);
-      setTrackName(eps?.tracks[trackIndex + 1]?.title);
+    let trackIndex = tracklist?.tracks.indexOf(currentTrack);
+    if (trackIndex !== tracklist?.tracks.length - 1) {
+      setCurrentTrack(tracklist?.tracks[trackIndex + 1]);
+      setCurrentTrackUrl(tracklist?.tracks[trackIndex + 1]?.trackUrl);
+      setTrackDescript(tracklist?.tracks[trackIndex + 1]?.trackDescript);
+      setTrackName(tracklist?.tracks[trackIndex + 1]?.trackTitle);
     } else {
-      setInitialTrack(eps?.tracks[0]);
-      setInitialTrackUrl(eps?.tracks[0]?.url);
-      setTrackDescript(eps?.tracks[0]?.descript);
-      setTrackName(eps?.tracks[0]?.title);
+      setCurrentTrack(tracklist?.tracks[0]);
+      setCurrentTrackUrl(tracklist?.tracks[0]?.trackUrl);
+      setTrackDescript(tracklist?.tracks[0]?.trackDescript);
+      setTrackName(tracklist?.tracks[0]?.trackTitle);
     }
   };
 
   const prevTrack = () => {
-    let trackIndex = eps?.tracks.indexOf(initialTrack);
-    console.log(eps?.tracks[eps?.tracks.length - 1]);
+    let trackIndex = tracklist?.tracks.indexOf(currentTrack);
+    console.log(tracklist?.tracks[tracklist?.tracks.length - 1]);
     if (trackIndex !== 0) {
-      setInitialTrack(eps?.tracks[trackIndex - 1]);
-      setInitialTrackUrl(eps?.tracks[trackIndex - 1]?.url);
-      setTrackDescript(eps?.tracks[trackIndex - 1]?.descript);
-      setTrackName(eps?.tracks[trackIndex - 1]?.title);
+      setCurrentTrack(tracklist?.tracks[trackIndex - 1]);
+      setCurrentTrackUrl(tracklist?.tracks[trackIndex - 1]?.trackUrl);
+      setTrackDescript(tracklist?.tracks[trackIndex - 1]?.trackDescript);
+      setTrackName(tracklist?.tracks[trackIndex - 1]?.trackTitle);
     } else {
-      setInitialTrack(eps?.tracks[eps?.tracks.length - 1]);
-      setInitialTrackUrl(eps?.tracks[eps?.tracks.length - 1]?.url);
-      setTrackDescript(eps?.tracks[eps?.tracks.length - 1]?.descript);
-      setTrackName(eps?.tracks[eps?.tracks.length - 1]?.title);
+      setCurrentTrack(tracklist?.tracks[tracklist?.tracks.length - 1]);
+      setCurrentTrackUrl(tracklist?.tracks[tracklist?.tracks.length - 1]?.trackUrl);
+      setTrackDescript(tracklist?.tracks[tracklist?.tracks.length - 1]?.trackDescript);
+      setTrackName(tracklist?.tracks[tracklist?.tracks.length - 1]?.trackTitle);
     }
   };
 
@@ -100,10 +103,10 @@ const Audioplayer = ({ eps }) => {
     audioPlayer?.current?.loadedmetadata,
     audioPlayer?.current?.readyState,
     nextTrack,
-    initialTrack,
+    currentTrack,
   ]);
 
-  console.log(initialTrack);
+  console.log(currentTrack);
   console.log(duration);
 
   const changeRange = () => {
@@ -135,18 +138,7 @@ const Audioplayer = ({ eps }) => {
 
   return (
     <div className="audioplayer">
-      {/* new model thing */}
-
-       {/* <div className="singleEp_topside">
-            <div className="singleEp_leftside">
-              <div className="singleEp_leftside-cover"></div>
-              <h1 className="singleEp_leftside-title">{ep.title}</h1>
-            </div>
-            <div className="singleEp_rightside-eps?.tracks">
-              {ep.eps?.tracks.map((track) => (<span>{track.trackTitle}</span>))}
-            </div>
-          </div> */}
-      <audio ref={audioPlayer} src={initialTrackUrl} preload="metadata"></audio>
+      <audio ref={audioPlayer} src={currentTrackUrl} preload="metadata"></audio>
       <div className="audioplayer_top">
         {" "}
         <h1 className="audioplayer_trackName">{trackName}</h1>
