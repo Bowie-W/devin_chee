@@ -1,8 +1,37 @@
-.EPs{
+.EPs {
+  &_container {
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_innerContainer {
+    background-color: whitesmoke;
+    width: 60%;
+    height: 80%;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: grid;
+  }
+}
+
+.singleEp {
     &_container{
-        height: 50vh;
-        width: 100vw;
-        background-color: red;
+        margin: 1rem 0;
+        display: flex;
+    }
+  &_cover {
+    width: 8rem;
+    height: 8rem;
+
+  }
+  &_rightside{
+
+    &-trackBox{
+        
     }
 
+  }
 }
