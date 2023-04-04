@@ -7,7 +7,7 @@ import { BsFillSkipEndFill } from "react-icons/bs";
 import { BsFillSkipStartFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-const Audioplayer = ({ tracks }) => {
+const Audioplayer = ({ eps }) => {
   const [playStatus, setPlayStatus] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -16,6 +16,8 @@ const Audioplayer = ({ tracks }) => {
   const [trackDescript, setTrackDescript] = useState("");
   const [trackName, setTrackName] = useState("");
   const [toggleStatus, setToggleStatus] = useState(false);
+  const [epForPlayer, setEpForPlayer] = useState([])
+  console.log(eps)
 
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -49,40 +51,44 @@ const Audioplayer = ({ tracks }) => {
   };
 
   useEffect(() => {
-    setInitialTrack(tracks[0]);
-    setInitialTrackUrl(tracks[0]?.url);
-    setTrackDescript(tracks[0]?.descript);
-    setTrackName(tracks[0]?.title);
-  }, [tracks]);
+    setEpForPlayer(eps)
+  }, [])
+
+  useEffect(() => {
+    setInitialTrack(eps?.tracks[0]);
+    setInitialTrackUrl(eps?.tracks[0]?.url);
+    setTrackDescript(eps?.tracks[0]?.descript);
+    setTrackName(eps?.tracks[0]?.title);
+  }, [initialTrack]);
 
   const nextTrack = () => {
-    let trackIndex = tracks.indexOf(initialTrack);
-    if (trackIndex !== tracks.length - 1) {
-      setInitialTrack(tracks[trackIndex + 1]);
-      setInitialTrackUrl(tracks[trackIndex + 1]?.url);
-      setTrackDescript(tracks[trackIndex + 1]?.descript);
-      setTrackName(tracks[trackIndex + 1]?.title);
+    let trackIndex = eps?.tracks.indexOf(initialTrack);
+    if (trackIndex !== eps?.tracks.length - 1) {
+      setInitialTrack(eps?.tracks[trackIndex + 1]);
+      setInitialTrackUrl(eps?.tracks[trackIndex + 1]?.url);
+      setTrackDescript(eps?.tracks[trackIndex + 1]?.descript);
+      setTrackName(eps?.tracks[trackIndex + 1]?.title);
     } else {
-      setInitialTrack(tracks[0]);
-      setInitialTrackUrl(tracks[0]?.url);
-      setTrackDescript(tracks[0]?.descript);
-      setTrackName(tracks[0]?.title);
+      setInitialTrack(eps?.tracks[0]);
+      setInitialTrackUrl(eps?.tracks[0]?.url);
+      setTrackDescript(eps?.tracks[0]?.descript);
+      setTrackName(eps?.tracks[0]?.title);
     }
   };
 
   const prevTrack = () => {
-    let trackIndex = tracks.indexOf(initialTrack);
-    console.log(tracks[tracks.length - 1]);
+    let trackIndex = eps?.tracks.indexOf(initialTrack);
+    console.log(eps?.tracks[eps?.tracks.length - 1]);
     if (trackIndex !== 0) {
-      setInitialTrack(tracks[trackIndex - 1]);
-      setInitialTrackUrl(tracks[trackIndex - 1]?.url);
-      setTrackDescript(tracks[trackIndex - 1]?.descript);
-      setTrackName(tracks[trackIndex - 1]?.title);
+      setInitialTrack(eps?.tracks[trackIndex - 1]);
+      setInitialTrackUrl(eps?.tracks[trackIndex - 1]?.url);
+      setTrackDescript(eps?.tracks[trackIndex - 1]?.descript);
+      setTrackName(eps?.tracks[trackIndex - 1]?.title);
     } else {
-      setInitialTrack(tracks[tracks.length - 1]);
-      setInitialTrackUrl(tracks[tracks.length - 1]?.url);
-      setTrackDescript(tracks[tracks.length - 1]?.descript);
-      setTrackName(tracks[tracks.length - 1]?.title);
+      setInitialTrack(eps?.tracks[eps?.tracks.length - 1]);
+      setInitialTrackUrl(eps?.tracks[eps?.tracks.length - 1]?.url);
+      setTrackDescript(eps?.tracks[eps?.tracks.length - 1]?.descript);
+      setTrackName(eps?.tracks[eps?.tracks.length - 1]?.title);
     }
   };
 
@@ -129,6 +135,17 @@ const Audioplayer = ({ tracks }) => {
 
   return (
     <div className="audioplayer">
+      {/* new model thing */}
+
+       {/* <div className="singleEp_topside">
+            <div className="singleEp_leftside">
+              <div className="singleEp_leftside-cover"></div>
+              <h1 className="singleEp_leftside-title">{ep.title}</h1>
+            </div>
+            <div className="singleEp_rightside-eps?.tracks">
+              {ep.eps?.tracks.map((track) => (<span>{track.trackTitle}</span>))}
+            </div>
+          </div> */}
       <audio ref={audioPlayer} src={initialTrackUrl} preload="metadata"></audio>
       <div className="audioplayer_top">
         {" "}

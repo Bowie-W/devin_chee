@@ -1,11 +1,15 @@
 import React from "react";
+import { Audioplayer } from "./Audioplayer";
 import "./EPs.scss";
 
 function EPs({ eps }) {
 
-  const playTrack = (event) => {
+  const playTrack = (event: { target: { attributes: { value: { value: string; }; }; }; }) => {
     console.log(event.target.attributes.value.value)
   }
+
+  console.log(eps)
+  
   return (
     <div className="EPs_container">
       <div className="EPs_innerContainer">
@@ -17,10 +21,11 @@ function EPs({ eps }) {
             </div>
             <div className="singleEp_rightside">
               {ep.tracks.map((track) => (
-                <div className="singleEp_rightside-trackBox" onClick={playTrack} value={track.trackUrl}>
+                <p className="singleEp_rightside-trackBox" onClick={playTrack} value={track.trackUrl}>
                   {track.trackTitle}
-                </div>
+                </p>
               ))}
+              {/* <Audioplayer eps={eps}/> */}
             </div>
           </div>
         ))}

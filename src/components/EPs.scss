@@ -25,11 +25,20 @@
   &_cover {
     width: 8rem;
     height: 8rem;
+    border-radius: 0.5rem;
 
   }
   &_rightside{
 
     &-trackBox{
+        cursor: pointer;
+        border: 1px solid black;
+        margin:0 0 0.5rem 0.5rem;
+        padding: 0.15rem;
+        width: 17rem;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         
     }
 
