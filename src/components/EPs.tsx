@@ -30,6 +30,7 @@ function EPs({ eps }) {
   return (
     <div className="EPs_container">
       <div className="EPs_innerContainer">
+        <div className="EPs_innerContainer-list">
         {eps.map((ep) => (
           <div className="singleEp_container" key={ep._id} onClick={playTrack} >
             <div className="singleEp_leftside">
@@ -49,6 +50,8 @@ function EPs({ eps }) {
             </div>
           </div>
         ))}
+        </div>
+      
         {playerStatus ? <Audioplayer tracklist={tracklist}/> : null }
       </div>
     </div>

@@ -1,12 +1,23 @@
 @use '../../styles/progressBarVariables' as *;
 
+@keyframes fadeIn {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
 .audioplayer{
    color: whitesmoke;
     background-color: purple;
     height: 10rem;
-    width: 50rem;
+    width: 39rem;
+    margin-left: 1rem;
 
     border-radius: 10px;
+    animation: 1.5s fadeIn ease;
     // position: absolute;   
     // top: 20%;
     // left: 100%;
@@ -64,7 +75,7 @@
         &-box{
             background-color: purple;
             border-radius: 10px;
-            margin: 1.5rem 1rem 0 1rem;
+            margin: 0rem 1rem 0 1rem;
             padding: 0.5rem;
         }
         &-text{

@@ -53,45 +53,43 @@ const Audioplayer = ({ tracklist }) => {
     if(tracklist){  
       setCurrentTrack(tracklist[0]);
       setCurrentTrackUrl(tracklist[0].trackUrl);
-      // setTrackDescript(tracklist?.tracks[0]?.trackDescript);
-      // setTrackName(tracklist?.tracks[0]?.trackTitle);
-    setCurrentTrack(tracklist[0])
+      setTrackDescript(tracklist[0].trackDescript);
+      setTrackName(tracklist[0].trackTitle);
     }
     
-  
- 
-  }, [currentTrack]);
+  }, []);
 
   console.log(currentTrack)
+  console.log(tracklist)
 
   const nextTrack = () => {
-    let trackIndex = tracklist?.tracks.indexOf(currentTrack);
-    if (trackIndex !== tracklist?.tracks.length - 1) {
-      setCurrentTrack(tracklist?.tracks[trackIndex + 1]);
-      setCurrentTrackUrl(tracklist?.tracks[trackIndex + 1]?.trackUrl);
-      setTrackDescript(tracklist?.tracks[trackIndex + 1]?.trackDescript);
-      setTrackName(tracklist?.tracks[trackIndex + 1]?.trackTitle);
+    let trackIndex = tracklist.indexOf(currentTrack);
+    if (trackIndex !== tracklist.length - 1) {
+      setCurrentTrack(tracklist[trackIndex + 1]);
+      setCurrentTrackUrl(tracklist[trackIndex + 1]?.trackUrl);
+      setTrackDescript(tracklist[trackIndex + 1]?.trackDescript);
+      setTrackName(tracklist[trackIndex + 1]?.trackTitle);
     } else {
-      setCurrentTrack(tracklist?.tracks[0]);
-      setCurrentTrackUrl(tracklist?.tracks[0]?.trackUrl);
-      setTrackDescript(tracklist?.tracks[0]?.trackDescript);
-      setTrackName(tracklist?.tracks[0]?.trackTitle);
+      setCurrentTrack(tracklist[0]);
+      setCurrentTrackUrl(tracklist[0]?.trackUrl);
+      setTrackDescript(tracklist[0]?.trackDescript);
+      setTrackName(tracklist[0]?.trackTitle);
     }
   };
 
   const prevTrack = () => {
-    let trackIndex = tracklist?.tracks.indexOf(currentTrack);
-    console.log(tracklist?.tracks[tracklist?.tracks.length - 1]);
+    let trackIndex = tracklist.indexOf(currentTrack);
+    console.log(tracklist[tracklist.length - 1]);
     if (trackIndex !== 0) {
-      setCurrentTrack(tracklist?.tracks[trackIndex - 1]);
-      setCurrentTrackUrl(tracklist?.tracks[trackIndex - 1]?.trackUrl);
-      setTrackDescript(tracklist?.tracks[trackIndex - 1]?.trackDescript);
-      setTrackName(tracklist?.tracks[trackIndex - 1]?.trackTitle);
+      setCurrentTrack(tracklist[trackIndex - 1]);
+      setCurrentTrackUrl(tracklist[trackIndex - 1]?.trackUrl);
+      setTrackDescript(tracklist[trackIndex - 1]?.trackDescript);
+      setTrackName(tracklist[trackIndex - 1]?.trackTitle);
     } else {
-      setCurrentTrack(tracklist?.tracks[tracklist?.tracks.length - 1]);
-      setCurrentTrackUrl(tracklist?.tracks[tracklist?.tracks.length - 1]?.trackUrl);
-      setTrackDescript(tracklist?.tracks[tracklist?.tracks.length - 1]?.trackDescript);
-      setTrackName(tracklist?.tracks[tracklist?.tracks.length - 1]?.trackTitle);
+      setCurrentTrack(tracklist[tracklist.length - 1]);
+      setCurrentTrackUrl(tracklist[tracklist.length - 1]?.trackUrl);
+      setTrackDescript(tracklist[tracklist.length - 1]?.trackDescript);
+      setTrackName(tracklist[tracklist.length - 1]?.trackTitle);
     }
   };
 
