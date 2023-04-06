@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Projects.scss";
 
-function Projects() {
+function Projects({bgColor, setBgColor}) {
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -13,7 +13,6 @@ function Projects() {
     })
     const hiddenEles = document.querySelectorAll('.hidden')
     hiddenEles.forEach((el) => observer.observe(el))
-
 
 
   return (

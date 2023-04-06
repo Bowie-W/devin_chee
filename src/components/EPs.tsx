@@ -28,7 +28,7 @@ function EPs({ eps }) {
   console.log(tracklist)
   
   return (
-    <div className="EPs_container">
+
       <div className="EPs_innerContainer">
         <div className="EPs_innerContainer-list">
         {eps.map((ep) => (
@@ -54,7 +54,6 @@ function EPs({ eps }) {
       
         {playerStatus ? <Audioplayer tracklist={tracklist}/> : null }
       </div>
-    </div>
   );
 }
 

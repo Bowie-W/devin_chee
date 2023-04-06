@@ -2,21 +2,23 @@
 
 .projects {
   &_container {
-    margin-left: 17rem;
+    // margin-left: 17rem;
     color: whitesmoke;
+    background-image: linear-gradient(#871400, #3b37b7);
+    padding-left: 17rem;
   }
   &_title {
     margin: 2rem 0 0 4rem;
   }
   &_project1 {
     &-container {
-      margin: 2rem 0 0 4rem;
+      margin: 6rem 0 0 4rem;
       display: flex;
       &-link {
         width: 26rem;
       }
       &-pic {
-        width: 27rem;
+        width: 25rem;
       }
       &-titleBox {
       }
@@ -32,7 +34,7 @@
       &-rightBox {
         width: 30%;
         height: 20rem;
-        margin: 8rem;
+        margin: 5rem 0 0 0;
         display: flex;
         flex-direction: column;
         justify-content: center;

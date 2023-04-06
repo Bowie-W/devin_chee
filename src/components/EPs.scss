@@ -6,6 +6,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+//     aspect-ratio: 960/540;
+//     width: 100%;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     background-size: cover;
+//     z-index: -2;
+//     transform: scaleY(-1,);
+    
+//     background-image: url('https://res.cloudinary.com/dl2liojkl/image/upload/v1680739655/layered-peaks-haikei_qjytxt.svg')
   }
   &_innerContainer {
     background-color: whitesmoke;
@@ -14,6 +23,8 @@
     padding: 2rem;
     border-radius: 1rem;
     display: flex;
+    // transform: rotateY(180deg);
+    // transform: rotateX(180deg);
   }
 }
 
@@ -58,4 +69,16 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+.spacer{
+  
+}
+
+.layer1{
+    background-image: url('https://res.cloudinary.com/dl2liojkl/image/upload/v1680739655/layered-peaks-haikei_qjytxt.svg')
+}
+
+.flipped{
+    transform: scaleY(-1);
 }
