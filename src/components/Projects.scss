@@ -6,13 +6,14 @@
     color: whitesmoke;
     background-image: linear-gradient(#ab408e, #41305d);
     padding-left: 17rem;
+    margin-bottom: 2rem;
   }
   &_title {
-    margin: 2rem 0 0 4rem;
+    margin: 0rem 0 0 4rem;
   }
   &_project1 {
     &-container {
-      margin: 6rem 0 0 4rem;
+      margin: 4rem 0 6rem 4rem;
       display: flex;
       &-link {
         width: 26rem;

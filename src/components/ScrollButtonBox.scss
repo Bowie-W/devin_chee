@@ -1,0 +1,15 @@
+.buttonBox{
+    width: 10rem;
+    height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    &-button{
+        margin: 1rem;
+        width: 5rem;
+        height: 5rem;
+
+    }
+}

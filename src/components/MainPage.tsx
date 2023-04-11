@@ -5,31 +5,33 @@ import { Audioplayer } from "./Audioplayer";
 import Projects from "./Projects";
 import EPs from "./EPs";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
+import ScrollButtonBox from "./ScrollButtonBox";
 
 export default function MainPage({ profile, tracks, eps }): JSX.Element {
   console.log(profile.picture);
 
-  const [bgColor, setBgColor] = useState('')
+  const [bgColor, setBgColor] = useState("");
 
   const parallax = useRef<IParallax>(null!);
-  
+
   const titleObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        if (entry.isIntersecting){
-          setBgColor('red')
-        }
-        else {
-          setBgColor('blue')
-        }
-    })
-})
-const titleEles = document.querySelectorAll('.projects_title')
-titleEles.forEach((el) => titleObserver.observe(el))
-
-
+      if (entry.isIntersecting) {
+        setBgColor("red");
+      } else {
+        setBgColor("blue");
+      }
+    });
+  });
+  const titleEles = document.querySelectorAll(".projects_title");
+  titleEles.forEach((el) => titleObserver.observe(el));
 
   return (
-    <Parallax ref={parallax} pages={3} className={`mainPage_container ${bgColor}`}>
+    <Parallax
+      ref={parallax}
+      pages={3}
+      className={`mainPage_container ${bgColor}`}
+    >
       <div className="mainPage_parallax">
         <ParallaxLayer
           offset={0}
@@ -53,15 +55,20 @@ titleEles.forEach((el) => titleObserver.observe(el))
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </span>
-            <button onClick={() => parallax.current.scrollTo(1)}></button>
+            <ScrollButtonBox parallax={parallax}/>
+           
+           
           </div>
         </ParallaxLayer>
-     
+
         <ParallaxLayer offset={1} className="mainPage_background2">
-          <Projects bgColor={bgColor} setBgColor={setBgColor}/>
+          <Projects bgColor={bgColor} setBgColor={setBgColor} />
         </ParallaxLayer>
         <ParallaxLayer offset={1}>
-        <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img>
+          <img
+            src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
+            className="mainPage_stars"
+          ></img>
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}
@@ -70,17 +77,22 @@ titleEles.forEach((el) => titleObserver.observe(el))
         >
           <img
             className="mainPage_background-peak"
-            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681240938/layered-steps-haikei_1_stgnfx.svg"></img>
+            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681240938/layered-steps-haikei_1_stgnfx.svg"
+          ></img>
         </ParallaxLayer>
-        <ParallaxLayer offset={2.1} className="mainPage_layer2">
+        <ParallaxLayer offset={2} className="mainPage_layer2">
           <EPs eps={eps} />
         </ParallaxLayer>
         <ParallaxLayer offset={2.4}>
-        <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img>
+          <img
+            src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
+            className="mainPage_stars"
+          ></img>
         </ParallaxLayer>
-        <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img>
-        {/* <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img> */}
-        {/* <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img> */}
+        <img
+          src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
+          className="mainPage_stars"
+        ></img>
       </div>
     </Parallax>
   );
