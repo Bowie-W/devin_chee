@@ -11,9 +11,8 @@ export default function LandingPage({profile, tracks, eps}) : JSX.Element{
 
     return (
         <div className='landingPage_main'>
-            <Header/>
+            {/* <Header/> */}
             <MainPage profile={profile} tracks={tracks} eps={eps}/>
-            <Footer/>
 
         </div>
 

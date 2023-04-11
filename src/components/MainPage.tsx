@@ -6,6 +6,7 @@ import Projects from "./Projects";
 import EPs from "./EPs";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import ScrollButtonBox from "./ScrollButtonBox";
+import Header from "./Header";
 
 export default function MainPage({ profile, tracks, eps }): JSX.Element {
   console.log(profile.picture);
@@ -32,6 +33,10 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
       pages={3}
       className={`mainPage_container ${bgColor}`}
     >
+      <Header/>
+       <ParallaxLayer offset={0.9} sticky={{ start: 0, end: 2 }} style={{width: "10%" }}>
+          <ScrollButtonBox parallax={parallax} />
+        </ParallaxLayer>
       <div className="mainPage_parallax">
         <ParallaxLayer
           offset={0}
@@ -55,9 +60,6 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
               nulla pariatur. Excepteur sint occaecat cupidatat non proident,
               sunt in culpa qui officia deserunt mollit anim id est laborum.
             </span>
-            <ScrollButtonBox parallax={parallax}/>
-           
-           
           </div>
         </ParallaxLayer>
 
@@ -80,6 +82,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
             src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681240938/layered-steps-haikei_1_stgnfx.svg"
           ></img>
         </ParallaxLayer>
+     
         <ParallaxLayer offset={2} className="mainPage_layer2">
           <EPs eps={eps} />
         </ParallaxLayer>
@@ -89,6 +92,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
             className="mainPage_stars"
           ></img>
         </ParallaxLayer>
+       
         <img
           src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
           className="mainPage_stars"
