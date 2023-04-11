@@ -37,7 +37,8 @@ export default function Header(): ReactElement {
 </svg> */}
           {/* <img alt='bandcamp'/> */}
         </div>
-        <div className="header_right-box_email">testemail@gmail.com</div>
+        <a className="header_right-box_email" href="mailto:madelusiv9@gmail.com">madelusiv9@gmail.com</a>
+   
       </div>
     </div>
   );

@@ -32,10 +32,15 @@
 .header_right-box {
   width: 15%;
   height: 100%;
-  margin-top: 1.75rem;
+  margin-top: 1rem;
+  display: flex;
+  padding-right: 1rem;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
   &_icons {
     height: 50%;
-    width: 75%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -47,6 +52,9 @@
   &_email {
     height: 50%;
     font-family: sans-serif;
+    color: black;
+    width: 100%;
+    text-align: end;
   }
 }
 

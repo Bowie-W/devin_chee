@@ -47,6 +47,7 @@ function Projects({bgColor, setBgColor}) {
           </p>
         </div>
       </div>
+      
     </div>
   );
 }

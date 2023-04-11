@@ -5,11 +5,14 @@
     &-container{ width: 10rem;
         height: 15rem;
         display: flex;
-        margin-top: 18rem;
+        margin-top: 14rem;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        background-color: red;}
+        border: 1px white solid;
+        background-color: rgba(245,245, 245,.5);
+        border-radius: 0px 10px 10px 0px;
+    }
    
     &-button{
         margin: 1rem;

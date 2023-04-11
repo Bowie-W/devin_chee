@@ -13,13 +13,14 @@
   }
   &_project1 {
     &-container {
-      margin: 4rem 0 6rem 4rem;
+      margin: 4rem 0 0rem 4rem;
       display: flex;
+      padding-bottom: 4rem;
       &-link {
         width: 26rem;
       }
       &-pic {
-        width: 25rem;
+        width: 24rem;
       }
       &-titleBox {
       }
