@@ -12,8 +12,6 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
   const [bgColor, setBgColor] = useState('')
 
   const parallax = useRef<IParallax>(null!);
-
-  const container = document.querySelectorAll('.mainPage_container')
   
   const titleObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -36,11 +34,11 @@ titleEles.forEach((el) => titleObserver.observe(el))
         <ParallaxLayer
           offset={0}
           speed={1}
-          className="mainpage_background-peak flipped"
+          className="mainpage_background-peak"
         >
           <img
             className="mainPage_background-peak"
-            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1680744995/layered-peaks-haikei_6_ehizwq.svg"
+            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681240933/layered-steps-haikei_ay0dgb.svg"
           ></img>
         </ParallaxLayer>
 
@@ -58,8 +56,12 @@ titleEles.forEach((el) => titleObserver.observe(el))
             <button onClick={() => parallax.current.scrollTo(1)}></button>
           </div>
         </ParallaxLayer>
+     
         <ParallaxLayer offset={1} className="mainPage_background2">
           <Projects bgColor={bgColor} setBgColor={setBgColor}/>
+        </ParallaxLayer>
+        <ParallaxLayer offset={1}>
+        <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img>
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}
@@ -68,12 +70,17 @@ titleEles.forEach((el) => titleObserver.observe(el))
         >
           <img
             className="mainPage_background-peak"
-            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1680744990/layered-peaks-haikei_5_giprha.svg"
-          ></img>
+            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681240938/layered-steps-haikei_1_stgnfx.svg"></img>
         </ParallaxLayer>
-        <ParallaxLayer offset={2.1} className="mainPage_layer2 flipped">
+        <ParallaxLayer offset={2.1} className="mainPage_layer2">
           <EPs eps={eps} />
         </ParallaxLayer>
+        <ParallaxLayer offset={2.4}>
+        <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img>
+        </ParallaxLayer>
+        <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img>
+        {/* <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img> */}
+        {/* <img src="https://awv3node-homepage.surge.sh/build/assets/stars.svg" className="mainPage_stars"></img> */}
       </div>
     </Parallax>
   );
