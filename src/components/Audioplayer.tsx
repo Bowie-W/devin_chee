@@ -16,8 +16,8 @@ const Audioplayer = ({ tracklist }) => {
   const [trackDescript, setTrackDescript] = useState("");
   const [trackName, setTrackName] = useState("");
   const [toggleStatus, setToggleStatus] = useState(false);
-  const [epForPlayer, setEpForPlayer] = useState([])
-  const [primedTrack, setPrimedTrack] = useState([])
+  const [epForPlayer, setEpForPlayer] = useState([]);
+  const [primedTrack, setPrimedTrack] = useState([]);
 
   const audioPlayer = useRef();
   const progressBar = useRef();
@@ -50,17 +50,13 @@ const Audioplayer = ({ tracklist }) => {
   };
 
   useEffect(() => {
-    if(tracklist){  
+    if (tracklist) {
       setCurrentTrack(tracklist[0]);
       setCurrentTrackUrl(tracklist[0].trackUrl);
       setTrackDescript(tracklist[0].trackDescript);
       setTrackName(tracklist[0].trackTitle);
     }
-    
   }, []);
-
-  console.log(currentTrack)
-  console.log(tracklist)
 
   const nextTrack = () => {
     let trackIndex = tracklist.indexOf(currentTrack);
@@ -98,14 +94,11 @@ const Audioplayer = ({ tracklist }) => {
     setDuration(Math.floor(audioPlayer.current.duration));
     progressBar.current.max = seconds;
   }, [
-    audioPlayer?.current?.loadedmetadata,
-    audioPlayer?.current?.readyState,
+    audioPlayer.current?.loadedmetadata,
+    audioPlayer.current?.readyState,
     nextTrack,
     currentTrack,
   ]);
-
-  console.log(currentTrack);
-  console.log(duration);
 
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar?.current?.value;

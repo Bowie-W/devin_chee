@@ -9,6 +9,16 @@
   }
 }
 
+@keyframes fadeInPartial {
+    0% {
+      opacity: 50%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  
+
 .mainPage {
   &_container {
     width: 100%;
@@ -20,14 +30,9 @@
     display: none;
   }
 
-//   &_parallax {
-//     width: 80%;
-//     // height: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//   }
+  &_parallax {
+    animation: 2s fadeInPartial ease-in;
+  }
   &_profile {
     display: flex;
     justify-content: center;
@@ -36,6 +41,8 @@
     height: 100%;
     color: whitesmoke;
     font-size: 1.5rem;
+    animation: 2s fadeIn ease-in;
+    
   }
   &_profile span {
     width: 50%;
@@ -72,6 +79,7 @@
   }
   &_stars{
     width: 100%;
+
   }
 }
 

@@ -9,7 +9,6 @@ import ScrollButtonBox from "./ScrollButtonBox";
 import Header from "./Header";
 
 export default function MainPage({ profile, tracks, eps }): JSX.Element {
-  console.log(profile.picture);
 
   const [bgColor, setBgColor] = useState("");
 
@@ -82,21 +81,21 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
             src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681240938/layered-steps-haikei_1_stgnfx.svg"
           ></img>
         </ParallaxLayer>
-     
-        <ParallaxLayer offset={2} className="mainPage_layer2">
-          <EPs eps={eps} />
-        </ParallaxLayer>
         <ParallaxLayer offset={2.4}>
           <img
             src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
             className="mainPage_stars"
           ></img>
         </ParallaxLayer>
+        <ParallaxLayer offset={2} className="mainPage_layer2">
+          <EPs eps={eps} />
+        </ParallaxLayer>
+        
        
-        <img
+        {/* <img
           src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
           className="mainPage_stars"
-        ></img>
+        ></img> */}
       </div>
     </Parallax>
   );

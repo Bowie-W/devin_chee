@@ -33,8 +33,6 @@ function Homepage() {
     });
   }, []);
 
-console.log(eps)
-
   useEffect(() => {
     axios.get("http://localhost:3030/profile").then((response) => {
       setProfile(response.data[0]);
