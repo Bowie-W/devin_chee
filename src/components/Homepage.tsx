@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import "./Homepage.scss";
 import Intro from "./intro";
 import LandingPage from "./LandingPage";
+import MainPage from "./MainPage";
 
 function Homepage() {
   const [introEle, setIntroEle] = useState<JSX.Element | null>(<Intro />);
@@ -48,7 +49,7 @@ function Homepage() {
     <div className="homepage">
       <div className="homepage_intro">{introEle}</div>
       <div className={pageDisplay}>
-        <LandingPage profile={profile} tracks={tracks} eps={eps}/>
+        <MainPage profile={profile} tracks={tracks} eps={eps}/>
       </div>
     </div>
   );

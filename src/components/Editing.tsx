@@ -29,7 +29,7 @@ export default function Editing() {
     axios
       .post("https://api.cloudinary.com/v1_1/dl2liojkl/video/upload", formData)
       .then((res) => {
-        console.log(res)
+        console.log(res);
         setTrackUrl(res.data.url);
         console.log(trackUrl);
       });
@@ -42,17 +42,11 @@ export default function Editing() {
 
   return (
     <div className="editPage_main">
-      <div className="editPage_picture_box">
-        <div className="editPage_button_box">
-          <img
-            className="editPage_profilePic"
-            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1677886778/devin_chee-pic_imjsb5.jpg"
-          ></img>
-          <CloudinaryUploadWidget />
-        </div>
+      <div className="editPage_navigation">
+        <button className="cloudinary-button" style={{margin: 10}}>Upload a new EP</button>
+        <button className="cloudinary-button">Add Tracks to an EP</button>
       </div>
-
-      <form className="editPage_track">
+      {/* <form className="editPage_track">
         <input
           className="editPage_track-title"
           placeholder="Track Title"
@@ -70,11 +64,14 @@ export default function Editing() {
             setTrackAudio(e.target.files[0]);
           }}
         ></input>
-        <button className="editPage_track-upload cloudinary-button" onClick={uploadTrack}>
+        <button
+          className="editPage_track-upload cloudinary-button"
+          onClick={uploadTrack}
+        >
           {" "}
           Upload Track{" "}
         </button>
-      </form>
+      </form> */}
     </div>
   );
 }
