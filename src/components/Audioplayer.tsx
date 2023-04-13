@@ -7,7 +7,7 @@ import { BsFillSkipEndFill } from "react-icons/bs";
 import { BsFillSkipStartFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-const Audioplayer = ({ tracklist }) => {
+const Audioplayer = ({ tracklist, playerStatus }) => {
   const [playStatus, setPlayStatus] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -22,20 +22,15 @@ const Audioplayer = ({ tracklist }) => {
   const audioPlayer = useRef();
   const progressBar = useRef();
   const animationRef = useRef();
-  const canvasRef = useRef();
-  const source = useRef();
-  const analyser = useRef();
 
   const togglePlay = () => {
     if (playStatus === false) {
       setPlayStatus(true);
-      let audioContext = new AudioContext();
-
+      console.log(audioPlayer.current);
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(playing);
     } else {
       setPlayStatus(false);
-
       audioPlayer.current.pause();
       cancelAnimationFrame(animationRef.current);
     }
@@ -65,11 +60,15 @@ const Audioplayer = ({ tracklist }) => {
       setCurrentTrackUrl(tracklist[trackIndex + 1]?.trackUrl);
       setTrackDescript(tracklist[trackIndex + 1]?.trackDescript);
       setTrackName(tracklist[trackIndex + 1]?.trackTitle);
+      setCurrentTime(0);
+      setPlayStatus(false);
     } else {
       setCurrentTrack(tracklist[0]);
       setCurrentTrackUrl(tracklist[0]?.trackUrl);
       setTrackDescript(tracklist[0]?.trackDescript);
       setTrackName(tracklist[0]?.trackTitle);
+      setCurrentTime(0);
+      setPlayStatus(false);
     }
   };
 
@@ -81,23 +80,35 @@ const Audioplayer = ({ tracklist }) => {
       setCurrentTrackUrl(tracklist[trackIndex - 1]?.trackUrl);
       setTrackDescript(tracklist[trackIndex - 1]?.trackDescript);
       setTrackName(tracklist[trackIndex - 1]?.trackTitle);
+      setCurrentTime(0);
+      setPlayStatus(false);
     } else {
       setCurrentTrack(tracklist[tracklist.length - 1]);
       setCurrentTrackUrl(tracklist[tracklist.length - 1]?.trackUrl);
       setTrackDescript(tracklist[tracklist.length - 1]?.trackDescript);
       setTrackName(tracklist[tracklist.length - 1]?.trackTitle);
+      setCurrentTime(0);
+      setPlayStatus(false);
     }
   };
 
   useEffect(() => {
-    const seconds = Math.floor(audioPlayer.current.duration);
-    setDuration(Math.floor(audioPlayer.current.duration));
-    progressBar.current.max = seconds;
+    if (audioPlayer.current) {
+      const seconds = Math.floor(audioPlayer.current?.duration);
+      progressBar.current.max = seconds;
+      setDuration(calcTime(Math.floor(seconds)));
+      
+    }
   }, [
-    audioPlayer.current?.loadedmetadata,
+    // audioPlayer.current?.loadedmetadata,
+    // audioPlayer.current?.loadeddata,
     audioPlayer.current?.readyState,
+    // audioPlayer.current?.audioprocess,
+    // audioPlayer.current?.canplay,
+    playerStatus,
+    prevTrack,
     nextTrack,
-    currentTrack,
+    // currentTrack,
   ]);
 
   const changeRange = () => {
@@ -127,13 +138,13 @@ const Audioplayer = ({ tracklist }) => {
     setCurrentTime(progressBar?.current?.value);
   };
 
+
   return (
     <div className="audioplayer">
       <audio ref={audioPlayer} src={currentTrackUrl} preload="metadata"></audio>
       <div className="audioplayer_top">
         {" "}
         <h1 className="audioplayer_trackName">{trackName}</h1>
-        <canvas ref={canvasRef} width={200} height={50}></canvas>
       </div>
 
       <div className="audioplayer_bottom">
@@ -156,7 +167,7 @@ const Audioplayer = ({ tracklist }) => {
         </div>
 
         <div className="audioplayer_progBox">
-          <div>{calcTime(currentTime)}</div>
+        <div className="audioplayer_progBox-currentTime">{calcTime(currentTime)}</div>
           <div className="audioplayer_progressBarBox">
             <input
               className="audioplayer_progressBar"
@@ -166,7 +177,7 @@ const Audioplayer = ({ tracklist }) => {
               onChange={changeRange}
             ></input>
           </div>
-          <div>{calcTime(duration)}</div>
+          <div className="audioplayer_progBox-totalTime">{duration}</div>
         </div>
       </div>
       <div className="audioplayer_trackDescript-box">

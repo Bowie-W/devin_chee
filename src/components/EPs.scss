@@ -17,12 +17,14 @@
     //     background-image: url('https://res.cloudinary.com/dl2liojkl/image/upload/v1680739655/layered-peaks-haikei_qjytxt.svg')
   }
   &_innerContainer {
-    background-color: whitesmoke;
+    background-color: rgba(50, 47, 133, 0.816)  ;
     width: 60%;
     height: 80%;
     padding: 2rem;
     border-radius: 1rem;
     display: flex;
+    color: whitesmoke;
+    border: 3.5px solid whitesmoke;
 
     // transform: rotateY(180deg);
     // transform: rotateX(180deg);
@@ -33,11 +35,11 @@
         min-width: 27rem;
     }
     &-list::-webkit-scrollbar{
-        background-color: whitesmoke;
+        background-color: #5d59ba ;
         width: 0.25rem;
     }
     &-list::-webkit-scrollbar-thumb{
-        background-color: #5d59ba ;
+        background-color: whitesmoke ;
     }
   }
 }

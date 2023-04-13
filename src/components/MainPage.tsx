@@ -91,11 +91,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
           <EPs eps={eps} />
         </ParallaxLayer>
         
-       
-        {/* <img
-          src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
-          className="mainPage_stars"
-        ></img> */}
+
       </div>
     </Parallax>
   );

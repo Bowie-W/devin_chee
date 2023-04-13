@@ -6,12 +6,14 @@ import { HiPlay } from "react-icons/hi2";
 
 function EPs({ eps }) {
   const [playerStatus, setPlayerStatus] = useState(false);
+  const [tracklist, setTracklist] = useState([]);
 
+  console.log(eps)
   const playTrack = (event) => {
-    console.log(event.target);
+    // console.log(event.target);
     let id = event.target.attributes.value.value;
     let foundEp = eps.find((ep) => ep._id === id);
-    console.log(foundEp);
+    // console.log(foundEp);
     setTracklist(foundEp.tracks);
     toggleplayer();
   };
@@ -19,12 +21,15 @@ function EPs({ eps }) {
   const toggleplayer = () => {
     if (playerStatus === true) {
       setPlayerStatus(false);
-    } else {
+      setTimeout(() => {
+        setPlayerStatus(true)
+      }, "200")
+    } else if (playerStatus === false) {
       setPlayerStatus(true);
     }
   };
 
-  const [tracklist, setTracklist] = useState([]);
+
 
   return (
     <div className="EPs_innerContainer">
@@ -60,7 +65,7 @@ function EPs({ eps }) {
         ))}
       </div>
 
-      {playerStatus ? <Audioplayer tracklist={tracklist} /> : null}
+      {playerStatus ? <Audioplayer tracklist={tracklist} playStatus={playerStatus} /> : null}
     </div>
   );
 }
