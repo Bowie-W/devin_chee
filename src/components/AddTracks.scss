@@ -1,0 +1,35 @@
+
+.addTracks_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.trackForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25%;
+    height: 50%;
+    &_track{
+        width: 20rem;
+        height: 20rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 5rem 0 0 0;
+        &-title{
+            width: 14rem;
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+        }
+        &-descript{
+            height: 12rem;
+            border-radius: 10px;
+            padding: 0.3rem;
+            // background-color: red;
+        }
+    }
+}
