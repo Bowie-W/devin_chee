@@ -26,9 +26,6 @@ function AddEp({setEpModalStatus}) {
       .then((res) =>{
         setUploadedImage(res.data.url);
       })
-      .then(() =>{
-        setEpModalStatus(false)
-      });
   };
 
   console.log(epTitle)
@@ -38,20 +35,23 @@ function AddEp({setEpModalStatus}) {
     axios
     .post('http://localhost:3030/eps', {
         title : epTitle,
-        cover : uploadedImage,
-        tracks : []
+        tracks : [],
+        cover : uploadedImage
+    })
+    .then((res) =>{
+        setEpModalStatus(false)
     })
 
   }
 
-  const closeModal = (event)=>{
+  const closeEpModal = (event)=>{
     event.preventDefault()
     setEpModalStatus(false)
   }
 
   return (
     <form className="addEp_container">
-        <button className="addEp_closeButton" onClick={closeModal}>X</button>
+        <button className="addEp_closeButton" onClick={closeEpModal}>X</button>
       <input className="addEp_title" placeholder="Title" onChange={(e) =>
         setEpTitle(e.target.value)
       }></input>
@@ -59,7 +59,7 @@ function AddEp({setEpModalStatus}) {
         {" "}
         <img id="uploadedimage" src={uploadedImage} alt="Ep-pic" />
         <input
-            className=" pl-20 my-5 text-white-50 "
+            className=""
             type="file"
             name="image"
             onChange={(e) => {

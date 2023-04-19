@@ -8,8 +8,9 @@
         background-color: whitesmoke;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        padding: 0 1rem;
+        
+        justify-content: space-between;
+        padding: 4rem 1rem 1rem 1rem;
         }
         &_closeButton{
             position: absolute;
@@ -18,11 +19,15 @@
             width: 1.5rem;
             height: 1.5rem;
         }
+        &_picBox{
+            width: 10rem;
+            height: 10rem;
+        }
 }
 
 
 
 #uploadedimage{
-    width: 15rem;
-    height: 15rem;
+    width: 18rem;
+    height: 10rem;
 }

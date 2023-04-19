@@ -33,6 +33,10 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
       className={`mainPage_container ${bgColor}`}
     >
       <Header/>
+      <img
+            src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
+            className="mainPage_stars"
+          ></img>
        <ParallaxLayer offset={0.9} sticky={{ start: 0, end: 2 }} style={{width: "10%" }}>
           <ScrollButtonBox parallax={parallax} />
         </ParallaxLayer>

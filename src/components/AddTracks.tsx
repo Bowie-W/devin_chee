@@ -3,7 +3,18 @@ import CloudinaryUploadWidget from "./CloudinaryUploadWiddget";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function AddTracks() {
+function AddTracks({toggleTrackModal}) {
+
+    const [epList, setEpList] = useState([])
+    const [addTrackFormStatus, setAddTrackFormStatus] = useState(false)
+    const [selectedEp, setSelectedEp] = useState(false)
+
+    useEffect(() => {
+        axios.get("http://localhost:3030/EPs").then((response) => {
+          setEpList(response.data);
+        });
+      }, []);
+    
 
     const [trackDescript, setTrackDescript] = useState("");
     const [trackName, setTrackName] = useState("");
@@ -17,32 +28,52 @@ function AddTracks() {
         url: trackUrl,
       });
     };
+
+    const trackFormToggle = (event) => {
+        if (addTrackFormStatus === false) {
+            setSelectedEp(event.target.attributes.value.value)  
+            setAddTrackFormStatus(true)
+        }
+        else {setAddTrackFormStatus(false)}
+    }
+
   
-    console.log(trackAudio);
+    // console.log(trackAudio);
   
-    const cloudUpload = () => {
-      const formData = new FormData();
-      formData.append("file", trackAudio);
-      formData.append("upload_preset", "Testing");
-      formData.append("apikey", 933797642957498);
-      formData.append("timestamp", Date.now());
+    // const cloudUpload = () => {
+    //   const formData = new FormData();
+    //   formData.append("file", trackAudio);
+    //   formData.append("upload_preset", "Testing");
+    //   formData.append("apikey", 933797642957498);
+    //   formData.append("timestamp", Date.now());
   
-      axios
-        .post("https://api.cloudinary.com/v1_1/dl2liojkl/video/upload", formData)
-        .then((res) => {
-          console.log(res);
-          setTrackUrl(res.data.url);
-          console.log(trackUrl);
-        });
-    };
+    //   axios
+    //     .post("https://api.cloudinary.com/v1_1/dl2liojkl/video/upload", formData)
+    //     .then((res) => {
+    //       console.log(res);
+    //       setTrackUrl(res.data.url);
+    //       console.log(trackUrl);
+    //     });
+    // };
   
-    useEffect(() => {
-      cloudUpload();
-      console.log("Track Primed");
-    }, [trackAudio]);
+    // useEffect(() => {
+    //   cloudUpload();
+    //   console.log("Track Primed");
+    // }, [trackAudio]);
+
+
   return (
     <div className="addTracks_container">
-      <form className="trackForm">
+   <div className="addTracks_epContainerList">
+    <button className="addTracks_closeButton" onClick={toggleTrackModal}>x</button>
+         {epList.map((ep) => (
+          <div className="addTracks_singleEp" key={ep._id} value={ep._id}>
+              <img className="addTracks_singleEp-cover" src={ep.cover} value={ep._id} onClick={trackFormToggle}/>
+              <h1 className="addTracks_singleEp-title" value={ep._id} onClick={trackFormToggle}>{ep.title}</h1>
+            </div>))}
+    </div>
+    {addTrackFormStatus ? <form className="trackForm">
+    <button className="addTracks_closeButton" onClick={trackFormToggle}>x</button>
         <input
           className="trackForm_track-title"
           placeholder="Track Title"
@@ -67,7 +98,8 @@ function AddTracks() {
           {" "}
           Upload Track{" "}
         </button>
-      </form>
+      </form> : null
+      } 
     </div>
   );
 }

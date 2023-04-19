@@ -3,6 +3,7 @@ import CloudinaryUploadWidget from "./CloudinaryUploadWiddget";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AddEp from "./AddEp";
+import AddTracks from "./AddTracks";
 
 export default function Editing() {
   // const [trackDescript, setTrackDescript] = useState("");
@@ -42,8 +43,9 @@ export default function Editing() {
   // }, [trackAudio]);
 
   const [epModalStatus, setEpModalStatus] = useState(false)
+  const [trackModalStatus, setTrackModalStatus] = useState(false)
 
-  const toggleModal = () => {
+  const toggleEpModal = () => {
     if (epModalStatus === true) {
       setEpModalStatus(false);
   
@@ -51,14 +53,24 @@ export default function Editing() {
       setEpModalStatus(true);
     }
   };
+  
+  const toggleTrackModal = () => {
+    if (trackModalStatus === true) {
+      setTrackModalStatus(false);
+  
+    } else if (trackModalStatus === false) {
+      setTrackModalStatus(true);
+    }
+  };
 
   return (
     <div className="editPage_main">
       <div className="editPage_navigation">
-        <button className="cloudinary-button" style={{margin: 10}} onClick={toggleModal}>Upload a new EP</button>
-        <button className="cloudinary-button">Add Tracks to an EP</button>
+        <button className="cloudinary-button" style={{margin: 10}} onClick={toggleEpModal}>Upload a new EP</button>
+        <button className="cloudinary-button" onClick={toggleTrackModal}>Add Tracks to an EP</button>
       </div>
       {epModalStatus ? <AddEp setEpModalStatus={setEpModalStatus}/>: null}
+      {trackModalStatus ? <AddTracks toggleTrackModal={toggleTrackModal}/> : null}
     </div>
   );
 }
