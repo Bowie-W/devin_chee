@@ -10,14 +10,13 @@
 }
 
 @keyframes fadeInPartial {
-    0% {
-      opacity: 50%;
-    }
-    100% {
-      opacity: 100%;
-    }
+  0% {
+    opacity: 50%;
   }
-  
+  100% {
+    opacity: 100%;
+  }
+}
 
 .mainPage {
   &_container {
@@ -42,7 +41,6 @@
     color: whitesmoke;
     font-size: 1.5rem;
     animation: 2s fadeIn ease-in;
-    
   }
   &_profile span {
     width: 50%;
@@ -78,9 +76,8 @@
     align-items: center;
     margin: 1.5rem 0 0 0;
   }
-  &_stars{
+  &_stars {
     width: 100%;
-
   }
 }
 
@@ -101,10 +98,10 @@
   transform: rotateY(180deg);
 }
 
-.red{
-    background-color: #ab408e;
+.red {
+  background-color: #ab408e;
 }
 
-.blue{
-    background-color: #41305d;
+.blue {
+  background-color: #41305d;
 }

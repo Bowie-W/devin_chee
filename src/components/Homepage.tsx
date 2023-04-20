@@ -1,22 +1,15 @@
 import axios from "axios";
 import {
-  ReactComponentElement,
-  ReactElement,
   useEffect,
   useState,
 } from "react";
-import Footer from "./Footer";
-import "./Homepage.scss";
+import "../styles/Homepage.scss";
 import Intro from "./intro";
-import LandingPage from "./LandingPage";
 import MainPage from "./MainPage";
 
 function Homepage() {
   const [introEle, setIntroEle] = useState<JSX.Element | null>(<Intro />);
-  const [landPageStatus, setLandPageStatus] = useState<JSX.Element | null>(
-    null
-  );
-  const [pageDisplay, setPageDisplay] = useState("homepage_landingpage-hidden");
+  const [pageDisplay, setPageDisplay] = useState("homepage_mainPage-hidden");
 
   const [profile, setProfile] = useState({});
   const [tracks, setTracks] = useState([]);
@@ -42,7 +35,7 @@ function Homepage() {
 
   setTimeout(() => {
     setIntroEle(null);
-    setPageDisplay("homepage_landingpage");
+    setPageDisplay("homepage_mainPage");
   }, 6250);
 
   return (

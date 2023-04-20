@@ -1,5 +1,4 @@
-import { useState } from "react";
-import "./Intro.scss";
+import "../styles/Intro.scss";
 
 export default function intro() : JSX.Element {
   const intro_alt_1 : string[] = ["a", "t", "y", "w", "o", "n", "x"];

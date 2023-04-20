@@ -11,7 +11,7 @@
 
 .audioplayer {
   color: whitesmoke;
-  background-color: #5d59ba ;
+  background-color: #5d59ba;
   height: 10rem;
   width: 100%;
   margin-left: 1rem;
@@ -87,15 +87,15 @@
     justify-content: space-between;
     width: 100%;
     padding: 0 1rem;
-    &-currentTime{
-        width: 3.5rem;
+    &-currentTime {
+      width: 3.5rem;
     }
-    &-totalTime{
-
+    &-totalTime {
     }
   }
   &_progressBarBox {
-    width: 50%;
+    width: 13rem;
+    margin-left: 0.5rem;
   }
   &_progressBar {
     appearance: none;

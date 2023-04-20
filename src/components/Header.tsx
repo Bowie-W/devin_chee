@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 import { Link } from "react-router-dom";
-import "./Header.scss";
+import "../styles/Header.scss";
 
 
 export default function Header(): ReactElement {

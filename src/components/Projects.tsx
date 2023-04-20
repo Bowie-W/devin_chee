@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Projects.scss";
+import "../styles/Projects.scss";
 
 function Projects({bgColor, setBgColor}) {
 

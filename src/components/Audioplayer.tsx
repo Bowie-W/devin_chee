@@ -1,10 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
-import "./Audioplayer.scss";
+import { useEffect, useRef, useState } from "react";
+import "../styles/Audioplayer.scss";
 import { HiPlayPause } from "react-icons/hi2";
 import { BsFillSkipForwardFill } from "react-icons/bs";
 import { BsFillSkipBackwardFill } from "react-icons/bs";
-import { BsFillSkipEndFill } from "react-icons/bs";
-import { BsFillSkipStartFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
 const Audioplayer = ({ tracklist, playerStatus }) => {
@@ -92,10 +90,13 @@ const Audioplayer = ({ tracklist, playerStatus }) => {
     }
   };
 
+  console.log(duration)
   useEffect(() => {
     if (audioPlayer.current) {
       const seconds = Math.floor(audioPlayer.current?.duration);
       progressBar.current.max = seconds;
+      const totaltime = calcTime(Math.floor(seconds))
+      console.log(totaltime.toString())
       setDuration(calcTime(Math.floor(seconds)));
       
     }
@@ -177,7 +178,7 @@ const Audioplayer = ({ tracklist, playerStatus }) => {
               onChange={changeRange}
             ></input>
           </div>
-          <div className="audioplayer_progBox-totalTime">{duration}</div>
+          {/* <div className="audioplayer_progBox-totalTime">{duration}</div> */}
         </div>
       </div>
       <div className="audioplayer_trackDescript-box">

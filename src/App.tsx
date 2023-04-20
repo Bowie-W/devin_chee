@@ -1,9 +1,8 @@
-import { ReactComponentElement, ReactElement, useState } from "react";
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
-import Userpage from "./components/Userpage";
-import AddTracks from "./components/AddTracks";
+
+import Editing from "./components/Editing";
 
 function App() {
 
@@ -12,8 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Homepage />}></Route>
-          <Route path="/editing" element={<Userpage/>}></Route>
-          <Route path="/editing/addTracks" element={<AddTracks/>}></Route>
+          <Route path="/editing" element={<Editing/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

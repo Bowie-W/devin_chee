@@ -31,7 +31,7 @@
     &-list{
         overflow-y: scroll;
         scrollbar-width: thin;
-        // overflow-x:visible;
+        // overflow-x:hidden;
         min-width: 27rem;
     }
     &-list::-webkit-scrollbar{
@@ -48,14 +48,26 @@
   &_container {
     margin: 1rem 0;
     display: flex;
+    flex-direction: column;
     width: 25.65rem;
     position: relative;
-
+  }
+  &_topBox{
+    display: flex;
   }
   &_cover {
     width: 8rem;
     height: 8rem;
     border-radius: 0.5rem;
+  }
+  &_title{
+    width: 26rem;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    font-size: 2rem;
+
   }
   &_rightside {
     &-trackBox {

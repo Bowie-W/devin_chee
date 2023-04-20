@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import {useState } from "react";
 import { Audioplayer } from "./Audioplayer";
-import "./EPs.scss";
-import { IconContext } from "react-icons";
-import { HiPlay } from "react-icons/hi2";
+import "../styles/EPs.scss";
 
 function EPs({ eps }) {
   const [playerStatus, setPlayerStatus] = useState(false);
@@ -36,9 +34,9 @@ function EPs({ eps }) {
       <div className="EPs_innerContainer-list">
         {eps.map((ep) => (
           <div className="singleEp_container" key={ep._id} onClick={playTrack}>
+            <div className='singleEp_topBox'>
             <div className="singleEp_leftside">
               <img className="singleEp_cover" src={ep.cover} />
-              <h1 className="singleEp_title">{ep.title}</h1>
             </div>
             <div className="singleEp_rightside">
               {ep.tracks.map((track) => (
@@ -61,6 +59,8 @@ function EPs({ eps }) {
               </div>
              
             </div>
+            </div>
+            <h1 className="singleEp_title">{ep.title}</h1>
           </div>
         ))}
       </div>

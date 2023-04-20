@@ -1,11 +1,11 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import "./AddEp.scss";
-import CloudinaryUploadWidget from "./CloudinaryUploadWiddget";
+import { useEffect, useState } from "react";
+import "../styles/AddEp.scss";
 
-function AddEp({setEpModalStatus}) {
+function AddEp({ setEpModalStatus }) {
   const [uploadedImage, setUploadedImage] = useState("");
-  const [epTitle, setEpTitle] = useState('')
+  const [epTitle, setEpTitle] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
 
   console.log(uploadedImage);
 
@@ -23,53 +23,58 @@ function AddEp({setEpModalStatus}) {
 
     axios
       .post("https://api.cloudinary.com/v1_1/dl2liojkl/image/upload", formData)
-      .then((res) =>{
-        setUploadedImage(res.data.url);
-      })
+      .then((res) => {
+        setImagePreview(res.data.url);
+      });
   };
 
-  console.log(epTitle)
+  console.log(epTitle);
 
-  const uploadEp = (event) =>{
-    event.preventDefault()
+  const uploadEp = (event) => {
+    event.preventDefault();
     axios
-    .post('http://localhost:3030/eps', {
-        title : epTitle,
-        tracks : [],
-        cover : uploadedImage
-    })
-    .then((res) =>{
-        setEpModalStatus(false)
-    })
+      .post("http://localhost:3030/eps", {
+        title: epTitle,
+        tracks: [],
+        cover: uploadedImage,
+      })
+      .then((res) => {
+        setEpModalStatus(false);
+      });
+  };
 
-  }
-
-  const closeEpModal = (event)=>{
-    event.preventDefault()
-    setEpModalStatus(false)
-  }
+  const closeEpModal = (event) => {
+    event.preventDefault();
+    setEpModalStatus(false);
+  };
 
   return (
     <form className="addEp_container">
-        <button className="addEp_closeButton" onClick={closeEpModal}>X</button>
-      <input className="addEp_title" placeholder="Title" onChange={(e) =>
-        setEpTitle(e.target.value)
-      }></input>
+      <button className="addEp_closeButton" onClick={closeEpModal}>
+        X
+      </button>
+      <input
+        className="addEp_title"
+        placeholder="Title"
+        onChange={(e) => setEpTitle(e.target.value)}
+      ></input>
       <div className="addEp_picBox">
         {" "}
-        <img id="uploadedimage" src={uploadedImage} alt="Ep-pic" />
+        <img id="uploadedimage" src={imagePreview} alt="Ep-pic" />
         <input
-            className=""
-            type="file"
-            name="image"
-            onChange={(e) => {
-              setUploadedImage(e.target.files[0]);
-            }}
-          ></input>
+          className=""
+          type="file"
+          name="image"
+          onChange={(e) => {
+            setUploadedImage(e.target.files[0]);
+          }}
+        ></input>
       </div>
-      <button className="cloudinary-button" onClick={uploadEp}>Upload this Ep</button>
+      <button className="cloudinary-button" onClick={uploadEp}>
+        Upload this Ep
+      </button>
     </form>
   );
-}   
+}
 
 export default AddEp;

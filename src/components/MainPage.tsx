@@ -1,7 +1,5 @@
-import "./MainPage.scss";
-import axios from "axios";
-import { useEffect, useRef, useState } from "react";
-import { Audioplayer } from "./Audioplayer";
+import "../styles/MainPage.scss";
+import { useRef, useState } from "react";
 import Projects from "./Projects";
 import EPs from "./EPs";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
@@ -82,7 +80,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
         >
           <img
             className="mainPage_background-peak"
-            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681240938/layered-steps-haikei_1_stgnfx.svg"
+            src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681953162/layered-steps-haikei_2_gzpvpt.svg"
           ></img>
         </ParallaxLayer>
         <ParallaxLayer offset={2.4}>

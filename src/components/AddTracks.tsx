@@ -1,5 +1,4 @@
-import "./AddTracks.scss";
-import CloudinaryUploadWidget from "./CloudinaryUploadWiddget";
+import "../styles/AddTracks.scss";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
