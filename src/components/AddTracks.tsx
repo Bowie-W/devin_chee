@@ -29,6 +29,19 @@ function AddTracks({toggleTrackModal}) {
       });
     };
 
+    const uploadTrackMongo = (event) => {
+        event?.preventDefault()
+        axios.patch('http://localhost:3030/EPs/tracks', {
+            id: selectedEp,
+            title: trackName,
+            descript: trackDescript,
+            url: trackUrl,
+        })
+        .then((res) => {
+            console.log(res)
+        })
+    }
+
     const trackFormToggle = (event) => {
         if (addTrackFormStatus === false) {
             setSelectedEp(event.target.attributes.value.value)  
@@ -36,30 +49,27 @@ function AddTracks({toggleTrackModal}) {
         }
         else {setAddTrackFormStatus(false)}
     }
-
   
-    // console.log(trackAudio);
+    const cloudUpload = () => {
+      const formData = new FormData();
+      formData.append("file", trackAudio);
+      formData.append("upload_preset", "Testing");
+      formData.append("apikey", 933797642957498);
+      formData.append("timestamp", Date.now());
   
-    // const cloudUpload = () => {
-    //   const formData = new FormData();
-    //   formData.append("file", trackAudio);
-    //   formData.append("upload_preset", "Testing");
-    //   formData.append("apikey", 933797642957498);
-    //   formData.append("timestamp", Date.now());
+      axios
+        .post("https://api.cloudinary.com/v1_1/dl2liojkl/video/upload", formData)
+        .then((res) => {
+          console.log(res);
+          setTrackUrl(res.data.url);
+          console.log(trackUrl);
+        });
+    };
   
-    //   axios
-    //     .post("https://api.cloudinary.com/v1_1/dl2liojkl/video/upload", formData)
-    //     .then((res) => {
-    //       console.log(res);
-    //       setTrackUrl(res.data.url);
-    //       console.log(trackUrl);
-    //     });
-    // };
-  
-    // useEffect(() => {
-    //   cloudUpload();
-    //   console.log("Track Primed");
-    // }, [trackAudio]);
+    useEffect(() => {
+      cloudUpload();
+      console.log("Track Primed");
+    }, [trackAudio]);
 
 
   return (
@@ -93,7 +103,7 @@ function AddTracks({toggleTrackModal}) {
         ></input>
         <button
           className="trackForm_track-upload cloudinary-button"
-          onClick={uploadTrack}
+          onClick={uploadTrackMongo}
         >
           {" "}
           Upload Track{" "}
