@@ -1,0 +1,85 @@
+.addTracks {
+  &_container {
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    width: 50rem;
+  }
+  &_epContainerList {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    grid-auto-rows: minmax(100px, auto);
+    position: relative;
+    width: 50rem;
+    height: 30rem;
+    top: 20%;
+    padding: 1rem;
+    border-radius: 0.625rem;
+    background-color: whitesmoke;
+    overflow: scroll;
+  }
+
+  &_epContainerList::-webkit-scrollbar {
+    display: none;
+  }
+
+  &_singleEp {
+
+    width: fit-content;
+    &-cover {
+      max-width: 10rem;
+      height: 10rem;
+      cursor: pointer;
+    }
+    &-title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 15rem;
+      height: fit-content;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  }
+  &_closeButton {
+    position: absolute;
+    top: 5%;
+    right: 2.5%;
+    padding: 0.625rem;
+  }
+}
+
+.trackForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  padding: 0rem 1rem;
+  border-radius: 0.625rem;
+  width: 20rem;
+  height: 30rem;
+  top: 0%;
+  background-color: whitesmoke;
+  right: -50%;
+
+  &_track {
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5rem 0 0 0;
+    &-title {
+      width: 14rem;
+      padding: 0.3rem;
+      border-radius: 0.3rem;
+    }
+    &-descript {
+      height: 12rem;
+      border-radius: 10px;
+      padding: 0.3rem;
+      // background-color: red;
+    }
+  }
+}

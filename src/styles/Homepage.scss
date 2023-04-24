@@ -1,0 +1,19 @@
+@use '../../styles/typography' as *;
+
+.homepage{
+
+    &_intro{
+        // position: relative;
+        font-family: 'Orbitron', sans-serif;
+
+    }
+    &_mainPage{
+        display: block;
+        width: 100%;
+        font-family: 'Orbitron', sans-serif;
+
+    }
+    &_mainPage-hidden{
+        display: none;
+    }
+}

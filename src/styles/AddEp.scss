@@ -1,0 +1,31 @@
+.addEp {
+  &_container {
+    position: absolute;
+    top: 20%;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 0.625rem;
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    padding: 4rem 1rem 1rem 1rem;
+  }
+  &_closeButton {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  &_picBox {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+#uploadedimage {
+  width: 18rem;
+  height: 10rem;
+}

@@ -1,0 +1,121 @@
+.EPs {
+  &_container {
+    height: 100vh;
+    width: 100vw;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //     aspect-ratio: 960/540;
+    //     width: 100%;
+    //     background-repeat: no-repeat;
+    //     background-position: center;
+    //     background-size: cover;
+    //     z-index: -2;
+    //     transform: scaleY(-1,);
+
+    //     background-image: url('https://res.cloudinary.com/dl2liojkl/image/upload/v1680739655/layered-peaks-haikei_qjytxt.svg')
+  }
+  &_innerContainer {
+    background-color: rgba(50, 47, 133, 0.816)  ;
+    width: 60%;
+    height: 80%;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    color: whitesmoke;
+    border: 3.5px solid whitesmoke;
+
+    // transform: rotateY(180deg);
+    // transform: rotateX(180deg);
+    &-list{
+        overflow-y: scroll;
+        scrollbar-width: thin;
+        // overflow-x:hidden;
+        min-width: 27rem;
+    }
+    &-list::-webkit-scrollbar{
+        background-color: #5d59ba ;
+        width: 0.25rem;
+    }
+    &-list::-webkit-scrollbar-thumb{
+        background-color: whitesmoke ;
+    }
+  }
+}
+
+.singleEp {
+  &_container {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 25.65rem;
+    position: relative;
+  }
+  &_topBox{
+    display: flex;
+  }
+  &_cover {
+    width: 8rem;
+    height: 8rem;
+    border-radius: 0.5rem;
+  }
+  &_title{
+    width: 26rem;
+    white-space: nowrap;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    font-size: 2rem;
+
+  }
+  &_rightside {
+    &-trackBox {
+      border: 1px solid black;
+      margin: 0 0 0.5rem 0.5rem;
+      padding: 0.15rem;
+      width: 17rem;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  &_buttonBox{
+    position: absolute;
+    background-color: rgba(93, 89, 186, 0.3);
+    width: 25.65rem;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+    border-radius: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &_button {
+    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 100%;
+  }
+}
+
+.singleEp_container .singleEp_buttonBox {
+  visibility: hidden;
+}
+
+.singleEp_container:hover .singleEp_buttonBox{
+  visibility: visible;
+}
+
+.layer1 {
+  background-image: url("https://res.cloudinary.com/dl2liojkl/image/upload/v1680739655/layered-peaks-haikei_qjytxt.svg");
+}
+
+.flipped {
+  transform: scaleY(-1);
+}
