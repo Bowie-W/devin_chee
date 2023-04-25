@@ -12,17 +12,17 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
 
   const parallax = useRef<IParallax>(null!);
 
-  const titleObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setBgColor("red");
-      } else {
-        setBgColor("blue");
-      }
-    });
-  });
-  const titleEles = document.querySelectorAll(".projects_title");
-  titleEles.forEach((el) => titleObserver.observe(el));
+  // const titleObserver = new IntersectionObserver((entries) => {
+  //   entries.forEach((entry) => {
+  //     if (entry.isIntersecting) {
+  //       setBgColor("blue");
+  //     } else {
+  //       setBgColor("red");
+  //     }
+  //   });
+  // });
+  // const titleEles = document.querySelectorAll(".mainPage_project-component-endMark");
+  // titleEles.forEach((el) => titleObserver.observe(el));
 
   return (
     <Parallax
@@ -31,10 +31,14 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
       className={`mainPage_container ${bgColor}`}
     >
       <Header/>
+      <ParallaxLayer offset={0}> <div className="red spacer"></div></ParallaxLayer>
+      <ParallaxLayer>
       <img
             src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
             className="mainPage_stars"
           ></img>
+      </ParallaxLayer>
+    
        <ParallaxLayer offset={0.9} sticky={{ start: 0, end: 2 }} style={{width: "10%" }}>
           <ScrollButtonBox parallax={parallax} />
         </ParallaxLayer>
@@ -63,10 +67,13 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
             </span>
           </div>
         </ParallaxLayer>
-
+       
+        <ParallaxLayer offset={1}> <div className="blue spacer"></div></ParallaxLayer>
         <ParallaxLayer offset={1} className="mainPage_background2">
           <Projects bgColor={bgColor} setBgColor={setBgColor} />
+          <div className="mainPage_project-component-endMark"></div>
         </ParallaxLayer>
+        
         <ParallaxLayer offset={1}>
           <img
             src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"

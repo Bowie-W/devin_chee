@@ -79,29 +79,17 @@
   &_stars {
     width: 100%;
   }
+
 }
-
-// .spacer{
-//     aspect-ratio: 960/540;
-//     width: 100%;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-size: cover;
-//     z-index: -2;
-// }
-
-// .layer1{
-//     background-image: url('https://res.cloudinary.com/dl2liojkl/image/upload/v1680739655/layered-peaks-haikei_qjytxt.svg')
-// }
-
-.flipped {
-  transform: rotateY(180deg);
-}
-
 .red {
   background-color: #ab408e;
+
 }
 
 .blue {
   background-color: #41305d;
+}
+
+.spacer{
+  height: 100rem;
 }

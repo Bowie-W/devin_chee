@@ -2,11 +2,14 @@
 
 .projects {
   &_container {
-    // margin-left: 17rem;
-    color: whitesmoke;
+    display: flex;
+    justify-content: center;
     background-image: linear-gradient(#ab408e, #41305d);
-    padding-left: 17rem;
-    margin-bottom: 2rem;
+    
+  }
+  &_innerContainer{
+    color: whitesmoke;
+    width: 50%;
   }
   &_title {
     margin: 0rem 0 0 4rem;

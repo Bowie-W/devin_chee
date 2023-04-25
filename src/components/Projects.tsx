@@ -17,7 +17,8 @@ function Projects({bgColor, setBgColor}) {
 
   return (
     <div className="projects_container">
-      <h1 className="projects_title hidden">Projects</h1>
+      <div className="projects_innerContainer">
+         <h1 className="projects_title hidden">Projects</h1>
       <div className="projects_project1-container">
         <Link
           to="https://www.forze-volume1.com/"
@@ -47,6 +48,8 @@ function Projects({bgColor, setBgColor}) {
           </p>
         </div>
       </div>
+      </div>
+     
       
     </div>
   );
