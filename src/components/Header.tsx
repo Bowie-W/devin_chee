@@ -10,7 +10,7 @@ export default function Header(): ReactElement {
       <h1 className="header_title"> Madelusiv</h1>
       <div className="header_right-box">
         <div className="header_right-box_icons">
-          <Link to='https://soundcloud.com/de_vinchee' className="insta_bg">  <svg
+          <Link to='https://www.instagram.com/de_vinchee/' className="insta_bg">  <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="16"

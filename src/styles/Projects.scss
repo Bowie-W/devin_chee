@@ -9,15 +9,16 @@
   }
   &_innerContainer{
     color: whitesmoke;
-    width: 50%;
+    width: 60%;
   }
   &_title {
-    margin: 0rem 0 0 4rem;
+    // margin: 0rem 0 0 4rem;
   }
   &_project1 {
     &-container {
-      margin: 4rem 0 0rem 4rem;
+      margin: 4rem 0 0 0;
       display: flex;
+      justify-content: space-between;
       padding-bottom: 4rem;
       &-link {
         width: 26rem;
@@ -37,15 +38,13 @@
         text-align: center;
       }
       &-rightBox {
-        width: 30%;
+        width: 40%;
         height: 20rem;
         margin: 5rem 0 0 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
-
         align-items: center;
-        margin-left: 2.5rem;
       }
       &-credit {
         margin: 3rem 0;
