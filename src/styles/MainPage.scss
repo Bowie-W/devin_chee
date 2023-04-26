@@ -44,31 +44,20 @@
   }
   &_profile span {
     width: 50%;
-  }
 
-  &_audio {
-    // height: 100vh;
-    // position:absolute;
-    // right: 1%;
-    // top: 14%;
-    animation: 3s fadeIn ease;
-    &_musicPlayer {
-    }
-    &_tracks {
-    }
   }
   &_background {
     &-peak {
       width: 100%;
-      // z-index: -3;
-    }
-
-    &-wave1 {
-      // top: 100%;
-      width: 100%;
     }
   }
   &_background2 {
+    &-peak {
+      width: 100%;
+      // z-index: -3;
+      transform: rotate(180deg);
+    }
+      
   }
   &_layer2 {
     display: flex;
@@ -77,6 +66,9 @@
     margin: 1.5rem 0 0 0;
   }
   &_stars {
+    width: 100%;
+  }
+  &_stars2{
     width: 100%;
   }
 
@@ -88,6 +80,7 @@
 
 .blue {
   background-color: #41305d;
+  background-image: url(https://awv3node-homepage.surge.sh/build/assets/stars.svg);
 }
 
 .spacer{

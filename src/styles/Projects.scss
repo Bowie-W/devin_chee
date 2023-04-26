@@ -1,11 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 
+.testing{
+  z-index: 10;
+  background-color: red;
+  color: white;
+}
+.testing2{
+  background-color: blue;
+}
+
 .projects {
   &_container {
     display: flex;
     justify-content: center;
     background-image: linear-gradient(#ab408e, #41305d);
+    // background-image: url(https://awv3node-homepage.surge.sh/build/assets/stars.svg);
     
+  }
+  &_stars{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(https://awv3node-homepage.surge.sh/build/assets/stars.svg);
   }
   &_innerContainer{
     color: whitesmoke;
@@ -17,12 +33,14 @@
   &_project1 {
     &-container {
       margin: 4rem 0 0 0;
-      display: flex;
+      display: flex !important;
       justify-content: space-between;
       padding-bottom: 4rem;
+      width: 80% !important;
       &-link {
         width: 26rem;
       }
+     
       &-pic {
         width: 24rem;
       }

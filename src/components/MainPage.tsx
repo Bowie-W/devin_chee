@@ -7,7 +7,6 @@ import ScrollButtonBox from "./ScrollButtonBox";
 import Header from "./Header";
 
 export default function MainPage({ profile, tracks, eps }): JSX.Element {
-
   const [bgColor, setBgColor] = useState("");
 
   const parallax = useRef<IParallax>(null!);
@@ -28,24 +27,31 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
     <Parallax
       ref={parallax}
       pages={3}
-      className={`mainPage_container ${bgColor}`}
+      className={`mainPage_container blue`}
     >
-      <Header/>
-      <ParallaxLayer offset={0}> <div className="red spacer"></div></ParallaxLayer>
-      <ParallaxLayer>
-      <img
-            src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
-            className="mainPage_stars"
-          ></img>
+      <Header />
+      <ParallaxLayer offset={0}>
+        {" "}
+        <div className="red spacer"></div>
       </ParallaxLayer>
-    
-       <ParallaxLayer offset={0.9} sticky={{ start: 0, end: 2 }} style={{width: "10%" }}>
-          <ScrollButtonBox parallax={parallax} />
-        </ParallaxLayer>
+      <ParallaxLayer>
+        <img
+          src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
+          className="mainPage_stars"
+        ></img>
+      </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={0.9}
+        sticky={{ start: 0, end: 2 }}
+        style={{ width: "10%" }}
+      >
+        <ScrollButtonBox parallax={parallax} />
+      </ParallaxLayer>
       <div className="mainPage_parallax">
         <ParallaxLayer
           offset={0}
-          speed={1}
+          speed={0.45}
           className="mainpage_background-peak"
         >
           <img
@@ -67,40 +73,35 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
             </span>
           </div>
         </ParallaxLayer>
-       
-        <ParallaxLayer offset={1}> <div className="blue spacer"></div></ParallaxLayer>
+
+        <ParallaxLayer offset={1}>
+          {" "}
+          <div className="blue spacer"></div>
+        </ParallaxLayer>
+     
         <ParallaxLayer offset={1} className="mainPage_background2">
           <Projects bgColor={bgColor} setBgColor={setBgColor} />
-          <div className="mainPage_project-component-endMark"></div>
         </ParallaxLayer>
-        
-        <ParallaxLayer offset={1}>
-          <img
-            src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
-            className="mainPage_stars"
-          ></img>
-        </ParallaxLayer>
+
         <ParallaxLayer
           offset={2}
           speed={1}
-          className="mainpage_background-peak"
+          className="mainpage_background2-peak"
         >
           <img
-            className="mainPage_background-peak"
+            className="mainPage_background2-peak"
             src="https://res.cloudinary.com/dl2liojkl/image/upload/v1681953162/layered-steps-haikei_2_gzpvpt.svg"
           ></img>
         </ParallaxLayer>
-        <ParallaxLayer offset={2.4}>
+        <ParallaxLayer offset={2}>
           <img
             src="https://awv3node-homepage.surge.sh/build/assets/stars.svg"
             className="mainPage_stars"
           ></img>
         </ParallaxLayer>
-        <ParallaxLayer offset={2} className="mainPage_layer2">
+        <ParallaxLayer offset={2} speed={0.45} className="mainPage_layer2">
           <EPs eps={eps} />
         </ParallaxLayer>
-        
-
       </div>
     </Parallax>
   );
