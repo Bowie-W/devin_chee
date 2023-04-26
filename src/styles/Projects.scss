@@ -1,3 +1,5 @@
+@use '../styles/partials/mixins' as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
 
 .testing{
@@ -32,43 +34,86 @@
   }
   &_project1 {
     &-container {
-      margin: 4rem 0 0 0;
+      margin: 2rem 0 0 0;
       display: flex !important;
       justify-content: space-between;
       padding-bottom: 4rem;
       width: 80% !important;
       &-link {
         width: 26rem;
+        @include tablet{
+          width: fit-content;
+        }
       }
      
       &-pic {
-        width: 24rem;
+        @include tablet{
+          width: 16rem;
+        }
+        @include desktop{
+          width: 24rem;
+        }
+
       }
       &-titleBox {
       }
       &-title {
-        font-size: 3rem;
         text-align: center;
         font-family: "Rubik Glitch", cursive;
+        @include tablet{
+          font-size: 2rem;
+        }
+        
+        @include desktop{
+          font-size: 3rem;
+        }
       }
       &-subtitle {
         font-size: 2rem;
         text-align: center;
+        @include tablet{
+          font-size: 1.25rem;
+        }
+        @include desktop{
+          width: fit-content;
+          font-size: 2rem;
+        }
       }
       &-rightBox {
-        width: 40%;
+      
+      @include tablet{
+     
         height: 20rem;
-        margin: 5rem 0 0 0;
+        width: 20rem;
+        margin: 0rem 0 0 2rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
+      @include desktop{
+        width: 40%;
+        margin: 5rem 0 0 0;
+     }
+        
+      }
       &-credit {
         margin: 3rem 0;
+        @include tablet{
+          font-size: 1.25rem;
+          text-align: center;
+        }
+        @include desktop{
+          font-size: 2rem;
+        }
       }
       &-descript {
         text-align: center;
+        display: none;
+        @include desktop{
+          display: block;
+        }
+
       }
     }
   }

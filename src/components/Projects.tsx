@@ -52,7 +52,7 @@ function Projects({ bgColor, setBgColor }) {
 
               <h2 className="projects_project1-container-credit">
                 {" "}
-                Sound-Designer
+                Sound Designer
               </h2>
               <p className="projects_project1-container-descript">
                 A mix-media interactive fashion show! Immerse yourself in a

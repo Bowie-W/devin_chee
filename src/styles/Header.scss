@@ -1,3 +1,5 @@
+@use '../styles/partials/mixins' as *;
+
 @keyframes fadeIn {
   0% {
     opacity: 0%;
@@ -22,22 +24,37 @@
 
 .header_title {
   font-size: 3rem;
+  @include tablet {
+  }
+
 }
 
 .header_left-box {
-  width: 15%;
-  height: 100%;
+
+  @include tablet {
+    width: 11rem;
+  }
+  @include desktop{
+    width: 15%;
+    height: 100%;
+  }
 }
 
 .header_right-box {
-  width: 15%;
-  height: 100%;
+
   margin-top: 1rem;
   display: flex;
   padding-right: 1rem;
   flex-direction: column;
   justify-content: end;
   align-items: start;
+  @include tablet {
+    width: 11rem;
+  }
+  @include desktop{
+    width: 15%;
+    height: 100%;
+  }
   &_icons {
     height: 50%;
     width: 100%;

@@ -43,7 +43,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
 
       <ParallaxLayer
         offset={0.9}
-        sticky={{ start: 0, end: 2 }}
+        sticky={{ start: 0.3, end: 2 }}
         style={{ width: "10%" }}
       >
         <ScrollButtonBox parallax={parallax} />
@@ -62,7 +62,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
 
         <ParallaxLayer offset={0}>
           <div className="mainPage_profile">
-            <span>
+            <span className="mainPage_profile-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud exercitation ullamco laboris
