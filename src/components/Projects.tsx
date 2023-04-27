@@ -1,7 +1,7 @@
 import "../styles/Projects.scss";
 import Slider from "react-slick";
-import "../styles/Carousel.css";
-import "../styles/Carousel-theme.css";
+import "../styles/Carousel.scss";
+import "../styles/Carousel-theme.scss";
 
 function Projects({ bgColor, setBgColor }) {
   const observer = new IntersectionObserver((entries) => {

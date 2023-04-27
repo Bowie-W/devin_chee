@@ -27,8 +27,6 @@ function EPs({ eps }) {
     }
   };
 
-
-
   return (
     <div className="EPs_innerContainer">
       <div className="EPs_innerContainer-list">
@@ -65,7 +63,7 @@ function EPs({ eps }) {
         ))}
       </div>
 
-      {playerStatus ? <Audioplayer tracklist={tracklist} playStatus={playerStatus} /> : null}
+      {playerStatus ? <Audioplayer tracklist={tracklist} playerStatus={playerStatus} setPlayerStatus={setPlayerStatus} /> : null}
     </div>
   );
 }

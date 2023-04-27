@@ -1,3 +1,5 @@
+@use '../styles/partials/mixins' as *;
+
 .EPs {
   &_container {
     height: 100vh;
@@ -6,15 +8,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    //     aspect-ratio: 960/540;
-    //     width: 100%;
-    //     background-repeat: no-repeat;
-    //     background-position: center;
-    //     background-size: cover;
-    //     z-index: -2;
-    //     transform: scaleY(-1,);
-
-    //     background-image: url('https://res.cloudinary.com/dl2liojkl/image/upload/v1680739655/layered-peaks-haikei_qjytxt.svg')
+ 
   }
   &_innerContainer {
     background-color: rgba(50, 47, 133, 0.816)  ;
@@ -25,14 +19,27 @@
     display: flex;
     color: whitesmoke;
     border: 3.5px solid whitesmoke;
+    @include tablet {
+      flex-direction: column;
+    }
 
-    // transform: rotateY(180deg);
-    // transform: rotateX(180deg);
+    @include desktop {
+      flex-direction: row;
+    }
     &-list{
-        overflow-y: scroll;
+      overflow-x: scroll;
         scrollbar-width: thin;
-        // overflow-x:hidden;
-        min-width: 27rem;
+       
+        @include tablet {
+          display: flex;
+        }
+        @include desktop{
+          flex-direction: column;
+          min-width: 27rem;
+          overflow-y: scroll;
+          overflow-x: auto;
+        }
+    
     }
     &-list::-webkit-scrollbar{
         background-color: #5d59ba ;
@@ -51,6 +58,12 @@
     flex-direction: column;
     width: 25.65rem;
     position: relative;
+    @include tablet {
+      width: 10rem;
+    }
+    @include desktop{
+      width: 25.65rem;
+    }
   }
   &_topBox{
     display: flex;
@@ -71,13 +84,21 @@
   }
   &_rightside {
     &-trackBox {
-      border: 1px solid black;
-      margin: 0 0 0.5rem 0.5rem;
-      padding: 0.15rem;
-      width: 17rem;
-      overflow-x: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include tablet {
+        display: none;
+      }
+      @include desktop{
+        border: 1px solid black;
+        margin: 0 0 0.5rem 0.5rem;
+        padding: 0.15rem;
+        width: 17rem;
+        overflow-x: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+
+      }
+    
     }
   }
   &_buttonBox{
@@ -91,6 +112,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include tablet{
+      width: 8rem;
+    }
+    @include desktop{
+      width: 25.65rem;
+
+    }
   }
   &_button {
     cursor: pointer;

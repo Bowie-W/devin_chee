@@ -5,7 +5,7 @@ import { BsFillSkipForwardFill } from "react-icons/bs";
 import { BsFillSkipBackwardFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
-const Audioplayer = ({ tracklist, playerStatus }) => {
+const Audioplayer = ({ tracklist, playerStatus, setPlayerStatus }) => {
   const [playStatus, setPlayStatus] = useState(false);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -90,15 +90,14 @@ const Audioplayer = ({ tracklist, playerStatus }) => {
     }
   };
 
-  console.log(duration)
+  console.log(duration);
   useEffect(() => {
     if (audioPlayer.current) {
       const seconds = Math.floor(audioPlayer.current?.duration);
       progressBar.current.max = seconds;
-      const totaltime = calcTime(Math.floor(seconds))
-      console.log(totaltime.toString())
+      const totaltime = calcTime(Math.floor(seconds));
+      console.log(totaltime.toString());
       setDuration(calcTime(Math.floor(seconds)));
-      
     }
   }, [
     // audioPlayer.current?.loadedmetadata,
@@ -139,12 +138,18 @@ const Audioplayer = ({ tracklist, playerStatus }) => {
     setCurrentTime(progressBar?.current?.value);
   };
 
+  const closePlayer = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    setPlayerStatus(false);
+  };
 
   return (
     <div className="audioplayer">
       <audio ref={audioPlayer} src={currentTrackUrl} preload="metadata"></audio>
       <div className="audioplayer_top">
-        {" "}
+        <button className="audioplayer_closeBtn" onClick={closePlayer}>
+          x
+        </button>{" "}
         <h1 className="audioplayer_trackName">{trackName}</h1>
       </div>
 
@@ -168,7 +173,9 @@ const Audioplayer = ({ tracklist, playerStatus }) => {
         </div>
 
         <div className="audioplayer_progBox">
-        <div className="audioplayer_progBox-currentTime">{calcTime(currentTime)}</div>
+          <div className="audioplayer_progBox-currentTime">
+            {calcTime(currentTime)}
+          </div>
           <div className="audioplayer_progressBarBox">
             <input
               className="audioplayer_progressBar"
