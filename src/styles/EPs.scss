@@ -12,26 +12,35 @@
   }
   &_innerContainer {
     background-color: rgba(50, 47, 133, 0.816)  ;
-    width: 60%;
-    height: 80%;
+
+ 
     padding: 2rem;
     border-radius: 1rem;
     display: flex;
     color: whitesmoke;
     border: 3.5px solid whitesmoke;
+    @include mobile {
+      width: 80%;
+      height: 80%;
+    }
     @include tablet {
       flex-direction: column;
+      width: 60%;
+      height: 80%;
     }
 
     @include desktop {
       flex-direction: row;
     }
     &-list{
-      overflow-x: scroll;
-        scrollbar-width: thin;
+      scrollbar-width: thin;
+      overflow-y: auto;
+      // overflow-x: hidden;
        
         @include tablet {
           display: flex;
+          overflow-x: scroll;
+     
         }
         @include desktop{
           flex-direction: column;
@@ -56,7 +65,6 @@
     margin: 1rem 0;
     display: flex;
     flex-direction: column;
-    width: 25.65rem;
     position: relative;
     @include tablet {
       width: 10rem;
@@ -74,7 +82,9 @@
     border-radius: 0.5rem;
   }
   &_title{
-    width: 26rem;
+    @include tablet {
+      width: 26rem;
+    }
     white-space: nowrap;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -84,7 +94,7 @@
   }
   &_rightside {
     &-trackBox {
-      @include tablet {
+      @include mobile {
         display: none;
       }
       @include desktop{
@@ -104,7 +114,6 @@
   &_buttonBox{
     position: absolute;
     background-color: rgba(93, 89, 186, 0.3);
-    width: 25.65rem;
     left: 0%;
     top: 0%;
     height: 100%;
@@ -112,8 +121,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    @include tablet{
+    @include mobile{
       width: 8rem;
+    }
+    @include tablet{
+      // width: 8rem;
     }
     @include desktop{
       width: 25.65rem;

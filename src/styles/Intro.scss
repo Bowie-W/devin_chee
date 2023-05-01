@@ -1,3 +1,5 @@
+@use '../styles/partials/mixins' as *;
+
 @keyframes fadeInAnimation {
   0% {
     opacity: 0;
@@ -99,11 +101,19 @@
   display: none;
 }
 .intro_title_box {
-  // animation: shrinking ease-in 3s;
-  font-size: 7rem;
+  @include mobile {
+    font-size: 2rem;
+  }
+  @include tablet {
+    font-size: 3rem;
+  }
+  @include desktop{
+    font-size: 7rem;
+  }
+
   display: flex;
   justify-content: space-between;
-  width: 50rem;
+
   color: #cfcdc6;
   position: relative;
   animation: blur 7s ease 0s;

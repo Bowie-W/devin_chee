@@ -7,7 +7,11 @@ export default function Header(): ReactElement {
   return (
     <div className="header_container">
       <div className="header_left-box"></div>
-      <h1 className="header_title"> Madelusiv</h1>
+      <div>
+      <h1 className="header_title"> Madelusiv</h1>   
+      <a className="header_right-box_email-mobile" href="mailto:madelusiv9@gmail.com">madelusiv9@gmail.com</a>
+      </div>
+     
       <div className="header_right-box">
         <div className="header_right-box_icons">
           <Link to='https://www.instagram.com/de_vinchee/' className="insta_bg">  <svg
