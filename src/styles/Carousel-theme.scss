@@ -62,9 +62,10 @@
     opacity: .75;
     color: white;
     /* border: 1px solid black; */
-    background-color: #5d59ba ;
+    background-color:#ba98b7 ;
     padding: 5px;
     border-radius: 25px;
+    border: 1px solid whitesmoke;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -72,7 +73,10 @@
 
 .slick-prev
 {
-   
+   @include mobile{
+    left: 2rem;
+    top: 19rem;
+   }
     @include tablet {
         left: 5rem;
         top: 27rem;
@@ -98,6 +102,10 @@
 
 .slick-next
 {
+    @include mobile{
+        right: 2rem;
+        top: 19rem;
+       }
     @include tablet {
         right: 5rem;
         top: 27rem;

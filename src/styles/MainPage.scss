@@ -39,16 +39,27 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    color: whitesmoke;
-    font-size: 1.5rem;
+   
     animation: 2s fadeIn ease-in;
-    @include tablet {
+    @include mobile {
+      color: whitesmoke;
+        }
+    @include desktop{
+      color: #504f4e;
     }
     
     &-text{
+      @include mobile{
+        font-size: 1rem;
+        padding: 1rem;
+        margin: 5rem 0 0 0;
+        font-family: 'Kanit', sans-serif;
+        // font-weight: 200;
+      }
       @include tablet {
         width: 60%;
         margin-top: 5rem;
+        font-size: 1.5rem;
 
       }
       @include desktop{

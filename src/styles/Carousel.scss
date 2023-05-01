@@ -1,4 +1,6 @@
 /* Slider */
+@use '../styles//partials/mixins' as *;
+
 .slick-slider
 {
     position: relative;
@@ -24,7 +26,13 @@
 
     display: block;
     overflow: hidden;
-    width: 74vw;
+    @include mobile {
+        width: 100vw;
+    }
+    @include tablet{
+        width: 74vw;
+    }
+
   
 
     margin: 0;

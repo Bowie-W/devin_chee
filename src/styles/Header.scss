@@ -14,7 +14,7 @@
   height: 11vh;
   position: sticky;
   top: 0;
-  background-color: #fff7e9;
+  // background-color: #fff7e9;
   animation: fadeIn 3s ease;
   display: flex;
   justify-content: space-between;
@@ -23,13 +23,20 @@
 }
 
 .header_title {
-  font-size: 3rem;
+
+  @include mobile{
+    font-size: 1.75rem;
+  }
   @include tablet {
+    font-size: 2.5rem;
   }
 
 }
 
 .header_left-box {
+  @include mobile{
+    width: 2rem;
+  }
 
   @include tablet {
     width: 11rem;
@@ -42,22 +49,37 @@
 
 .header_right-box {
 
-  margin-top: 1rem;
+  
   display: flex;
   padding-right: 1rem;
   flex-direction: column;
   justify-content: end;
   align-items: start;
+
+  @include mobile{
+    width: 15rem;
+    font-size: 0.85rem;
+    height: 90%;
+  }
   @include tablet {
     width: 11rem;
+    margin-top: 1rem;
   }
   @include desktop{
     width: 15%;
     height: 100%;
   }
   &_icons {
-    height: 50%;
-    width: 100%;
+    @include mobile{
+      height: 100%;
+      width: 100%;
+
+    }
+    @include tablet{
+      height: 50%;
+      width: 100%;
+    }
+ 
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -67,9 +89,17 @@
     height: 2.25rem;
   }
   &_email {
+ 
+    @include mobile{
+      display: none;
+    }
+    @include tablet{
+      display: block;
+      font-size: 1rem;
+    }
     height: 50%;
     font-family: sans-serif;
-    color: black;
+    color: #504f4e;
     width: 100%;
     text-align: end;
   }
@@ -84,8 +114,15 @@
     #962fbf,
     #4f5bd5
   );
-  width: 2.25rem;
-  height: 2.25rem;
+  @include mobile{
+    width: 2rem;
+    height: 2rem;
+  }
+  @include tablet {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
   border-radius: 5px;
   display: flex;
   justify-content: center;

@@ -24,11 +24,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
   // titleEles.forEach((el) => titleObserver.observe(el));
 
   return (
-    <Parallax
-      ref={parallax}
-      pages={3}
-      className={`mainPage_container blue`}
-    >
+    <Parallax ref={parallax} pages={3} className={`mainPage_container blue`}>
       <Header />
       <ParallaxLayer offset={0}>
         {" "}
@@ -43,7 +39,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
 
       <ParallaxLayer
         offset={0.9}
-        sticky={{ start: 0.3, end: 2 }}
+        sticky={{ start: 0, end: 2 }}
         style={{ width: "10%" }}
       >
         <ScrollButtonBox parallax={parallax} />
@@ -78,7 +74,7 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
           {" "}
           <div className="blue spacer"></div>
         </ParallaxLayer>
-     
+
         <ParallaxLayer offset={1} className="mainPage_background2">
           <Projects bgColor={bgColor} setBgColor={setBgColor} />
         </ParallaxLayer>

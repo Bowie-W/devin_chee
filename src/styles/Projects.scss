@@ -1,22 +1,17 @@
 @use '../styles/partials/mixins' as *;
+@use "../../styles/typography" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap");
-
-.testing{
-  z-index: 10;
-  background-color: red;
-  color: white;
-}
-.testing2{
-  background-color: blue;
-}
 
 .projects {
   &_container {
     display: flex;
-    justify-content: center;
+    @include mobile {
+      padding-left: 1rem;
+    }
+    @include tablet{
+      justify-content: center;
+    }
     background-image: linear-gradient(#ab408e, #41305d);
-    // background-image: url(https://awv3node-homepage.surge.sh/build/assets/stars.svg);
     
   }
   &_stars{
@@ -27,10 +22,15 @@
   }
   &_innerContainer{
     color: whitesmoke;
-    width: 60%;
+    width: 100%;
+    @include tablet{
+      width: 60%;
+    }
   }
   &_title {
-    // margin: 0rem 0 0 4rem;
+   @include mobile{
+
+   }
   }
   &_project1 {
     &-container {
@@ -47,6 +47,9 @@
       }
      
       &-pic {
+        @include mobile{
+          width: 10rem;
+        }
         @include tablet{
           width: 16rem;
         }
@@ -60,6 +63,9 @@
       &-title {
         text-align: center;
         font-family: "Rubik Glitch", cursive;
+        @include mobile {
+          font-size: 1.5rem;
+        }
         @include tablet{
           font-size: 2rem;
         }
@@ -71,8 +77,12 @@
       &-subtitle {
         font-size: 2rem;
         text-align: center;
+        @include mobile{
+          display: none;
+        }
         @include tablet{
           font-size: 1.25rem;
+          display: inline-block;
         }
         @include desktop{
           width: fit-content;
@@ -99,6 +109,9 @@
       }
       &-credit {
         margin: 3rem 0;
+        @include mobile {
+          font-size: 1rem;
+        }
         @include tablet{
           font-size: 1.25rem;
           text-align: center;
@@ -110,8 +123,10 @@
       &-descript {
         text-align: center;
         display: none;
+
         @include desktop{
           display: block;
+          font-family: 'Kanit', sans-serif;
         }
 
       }
