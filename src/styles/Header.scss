@@ -27,6 +27,7 @@
   @include mobile{
     font-size: 1.75rem;
     margin-top: 1rem;
+    font-weight: 400;
   }
   @include tablet {
     font-size: 2.5rem;
@@ -101,13 +102,16 @@
     }
     height: 50%;
     font-family: sans-serif;
-    color: #504f4e;
+    color: rgb(22, 22, 22);
     width: 100%;
     text-align: end;
     &-mobile{
       font-size: 0.8rem;
       color: #504f4e;
       font-family: sans-serif;
+      @include tablet{
+        display: none;
+      }
     }
   }
   

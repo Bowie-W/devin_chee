@@ -6,7 +6,7 @@ import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import ScrollButtonBox from "./ScrollButtonBox";
 import Header from "./Header";
 
-export default function MainPage({ profile, tracks, eps }): JSX.Element {
+export default function MainPage({ eps }): JSX.Element {
   const [bgColor, setBgColor] = useState("");
 
   const parallax = useRef<IParallax>(null!);
@@ -59,13 +59,17 @@ export default function MainPage({ profile, tracks, eps }): JSX.Element {
         <ParallaxLayer offset={0}>
           <div className="mainPage_profile">
             <span className="mainPage_profile-text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Madeslusiv is a stereo group based in Vancouver, BC whose primary
+              objective is to explore singular and otherworldly soundscapes and
+              challenge preconceived notions of what music can be. By utilizing
+              noise and nontraditional musical arrangements, and various
+              programs. The group creates a sonic atmosphere that acts as a
+              conduit between the conscious and unconscious mind. Madeslusiv
+              takes inspiration from experimental music genres such as ambient,
+              drone, and noise, with an aim to expand the definition of music
+              and investigate uncharted sonic landscapes. In essence, the group
+              strives to challenge conventional music boundaries, seeking to
+              create something truly original.
             </span>
           </div>
         </ParallaxLayer>

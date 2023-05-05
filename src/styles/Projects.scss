@@ -7,6 +7,8 @@
     display: flex;
     @include mobile {
       padding-left: 1rem;
+      padding-top: 2.5rem;
+
     }
     @include tablet{
       justify-content: center;
@@ -49,9 +51,11 @@
       &-pic {
         @include mobile{
           width: 10rem;
+          margin-right: 1rem;
         }
         @include tablet{
           width: 16rem;
+          margin-right: 0;
         }
         @include desktop{
           width: 24rem;
