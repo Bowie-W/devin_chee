@@ -33,6 +33,9 @@
     font-size: 2.5rem;
     margin-top: 0rem;
   }
+  @include desktop {
+    font-size: 4rem;
+  }
 
 }
 
@@ -82,6 +85,8 @@
       height: 50%;
       width: 100%;
     }
+    @include desktop{ 
+    }
  
     display: flex;
     justify-content: flex-end;
@@ -90,6 +95,7 @@
   &_icon {
     width: 2.5rem;
     height: 2.25rem;
+ 
   }
   &_email {
  
@@ -100,11 +106,15 @@
       display: block;
       font-size: 1rem;
     }
+    @include desktop{
+      font-size: 1.5rem;
+    }
     height: 50%;
     font-family: sans-serif;
     color: rgb(22, 22, 22);
     width: 100%;
     text-align: end;
+    
     &-mobile{
       font-size: 0.8rem;
       color: #504f4e;

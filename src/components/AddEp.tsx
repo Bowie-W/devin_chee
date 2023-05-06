@@ -6,8 +6,8 @@ function AddEp({ setEpModalStatus }) {
   const [uploadedImage, setUploadedImage] = useState("");
   const [epTitle, setEpTitle] = useState("");
   const [imagePreview, setImagePreview] = useState("");
+  const serv_url = import.meta.env.VITE_serv_url
 
-  console.log(uploadedImage);
 
   useEffect(() => {
     previewImage();
@@ -28,15 +28,13 @@ function AddEp({ setEpModalStatus }) {
       });
   };
 
-  console.log(epTitle);
-
   const uploadEp = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:3030/eps", {
+      .post(`${serv_url}/EPs`, {
         title: epTitle,
         tracks: [],
-        cover: uploadedImage,
+        cover: imagePreview,
       })
       .then((res) => {
         setEpModalStatus(false);

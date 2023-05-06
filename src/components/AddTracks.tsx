@@ -7,9 +7,10 @@ function AddTracks({toggleTrackModal}) {
     const [epList, setEpList] = useState([])
     const [addTrackFormStatus, setAddTrackFormStatus] = useState(false)
     const [selectedEp, setSelectedEp] = useState(false)
+    const serv_url = import.meta.env.VITE_serv_url
 
     useEffect(() => {
-        axios.get("http://localhost:3030/EPs").then((response) => {
+        axios.get(`${serv_url}/EPs`).then((response) => {
           setEpList(response.data);
         });
       }, []);
@@ -19,26 +20,18 @@ function AddTracks({toggleTrackModal}) {
     const [trackName, setTrackName] = useState("");
     const [trackUrl, setTrackUrl] = useState("");
     const [trackAudio, setTrackAudio] = useState("");
-  
-    const uploadTrack = () => {
-      axios.post("http://localhost:3030/tracks", {
-        title: trackName,
-        descript: trackDescript,
-        url: trackUrl,
-      });
-    };
 
     const uploadTrackMongo = (event) => {
         event?.preventDefault()
-        axios.patch('http://localhost:3030/EPs/tracks', {
+        axios.patch(`${serv_url}/EPs/tracks`, {
             id: selectedEp,
             title: trackName,
             descript: trackDescript,
             url: trackUrl,
         })
-        .then((res) => {
-            console.log(res)
-        })
+        .then(()=>{
+          setAddTrackFormStatus(false)
+        });
     }
 
     const trackFormToggle = (event) => {
@@ -62,7 +55,8 @@ function AddTracks({toggleTrackModal}) {
           console.log(res);
           setTrackUrl(res.data.url);
           console.log(trackUrl);
-        });
+        })
+       
     };
   
     useEffect(() => {

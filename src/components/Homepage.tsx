@@ -11,9 +11,10 @@ function Homepage() {
   const [introEle, setIntroEle] = useState<JSX.Element | null>(<Intro />);
   const [pageDisplay, setPageDisplay] = useState("homepage_mainPage-hidden");
   const [eps, setEPs] = useState([])
+  const serv_url = import.meta.env.VITE_serv_url
 
   useEffect(() => {
-    axios.get("http://localhost:3030/EPs").then((response) => {
+    axios.get(`${serv_url}/EPs`).then((response) => {
       setEPs(response.data);
     });
   }, []);
