@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "../styles/Carousel.scss";
 import "../styles/Carousel-theme.scss";
 
-function Projects({ bgColor, setBgColor }) {
+function Projects() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {

@@ -7,21 +7,8 @@ import ScrollButtonBox from "./ScrollButtonBox";
 import Header from "./Header";
 
 export default function MainPage({ eps }): JSX.Element {
-  const [bgColor, setBgColor] = useState("");
 
   const parallax = useRef<IParallax>(null!);
-
-  // const titleObserver = new IntersectionObserver((entries) => {
-  //   entries.forEach((entry) => {
-  //     if (entry.isIntersecting) {
-  //       setBgColor("blue");
-  //     } else {
-  //       setBgColor("red");
-  //     }
-  //   });
-  // });
-  // const titleEles = document.querySelectorAll(".mainPage_project-component-endMark");
-  // titleEles.forEach((el) => titleObserver.observe(el));
 
   return (
     <Parallax ref={parallax} pages={3} className={`mainPage_container blue`}>
@@ -80,7 +67,7 @@ export default function MainPage({ eps }): JSX.Element {
         </ParallaxLayer>
 
         <ParallaxLayer offset={1} className="mainPage_background2">
-          <Projects bgColor={bgColor} setBgColor={setBgColor} />
+          <Projects />
         </ParallaxLayer>
 
         <ParallaxLayer

@@ -34,10 +34,7 @@
     background-image: linear-gradient(#fcaa67, #ab408e, #41305d, #483785);
     border-radius: 0px 10px 10px 0px;
     animation: 2s fadeInAnimation ease-in;
-    @include desktop {
-      width: 15rem;
-      height: 20rem;
-    }
+
  
   }
 
@@ -49,9 +46,6 @@
     border-radius: 0.625rem;
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
-    @include desktop{
-      width: 7.5rem;
-      height: 7rem;
-    }
+
   }
 }

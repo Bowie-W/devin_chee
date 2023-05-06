@@ -22,7 +22,7 @@ function AddEp({ setEpModalStatus }) {
     formData.append("timestamp", Date.now());
 
     axios
-      .post("https://api.cloudinary.com/v1_1/dl2liojkl/image/upload", formData)
+      .post("https://api.cloudinary.com/v1_1/dl2liojkl/image/upload/", formData)
       .then((res) => {
         setImagePreview(res.data.url);
       });

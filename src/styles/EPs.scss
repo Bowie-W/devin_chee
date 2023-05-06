@@ -35,16 +35,16 @@
     &-list{
       scrollbar-width: thin;
       overflow-y: auto;
-      // overflow-x: hidden;
+      
        
         @include tablet {
           display: flex;
           overflow-x: scroll;
+          min-width: 50%;
      
         }
         @include desktop{
           flex-direction: column;
-          min-width: 27rem;
           overflow-y: scroll;
           overflow-x: auto;
         }
@@ -71,6 +71,7 @@
     }
     @include desktop{
       width: 25.65rem;
+      width: 100%;
     }
   }
   &_topBox{
@@ -80,16 +81,22 @@
     width: 8rem;
     height: 8rem;
     border-radius: 0.5rem;
+    object-fit: cover;
   }
   &_title{
-    @include tablet {
-      width: 26rem;
-    }
+    display: none;
     white-space: nowrap;
     overflow-x: hidden;
     overflow-y: hidden;
     text-overflow: ellipsis;
     font-size: 2rem;
+    @include tablet {
+      width: 26rem;
+    }
+    @include desktop {
+      display: inline-block;
+    }
+
 
   }
   &_rightside {
