@@ -39,7 +39,10 @@
   }
   &-container:hover{
     @include tablet{
-      width: 10rem;
+      width: 11vw;
+    }
+    @include desktop{
+      width: 8vw;
     }
   }
 
@@ -62,8 +65,5 @@
       width: 5rem;
       height: 5rem;
     }
-  }
-  &-button:hover {
-    background-color: red;
   }
 }
