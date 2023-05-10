@@ -12,7 +12,6 @@
 
 .buttonBox {
   height: 100vh;
-  width: 10vw;
   display: flex;
 
   @include mobile{
@@ -34,18 +33,37 @@
     background-image: linear-gradient(#fcaa67, #ab408e, #41305d, #483785);
     border-radius: 0px 10px 10px 0px;
     animation: 2s fadeInAnimation ease-in;
-
- 
+    @include tablet{
+      width: 8vw;
+    }
+  }
+  &-container:hover{
+    @include tablet{
+      width: 10rem;
+    }
   }
 
   &-button {
     margin: 1rem;
-    width: 5rem;
-    height: 5rem;
     color: black;
     border-radius: 0.625rem;
     font-family: 'Orbitron', sans-serif;
     font-weight: 600;
-
+    cursor: pointer;
+    @include tablet{
+      white-space: nowrap;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      text-overflow: ellipsis;
+      width: 3rem;
+      height: 5rem;
+    }
+    @include desktop{
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+  &-button:hover {
+    background-color: red;
   }
 }
