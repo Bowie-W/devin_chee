@@ -45,6 +45,9 @@
       width: 8vw;
     }
   }
+  &-container:hover .buttonBox-button{
+    width: 4.5rem;
+  }
 
   &-button {
     margin: 1rem;
