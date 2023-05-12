@@ -47,6 +47,9 @@
   }
   &-container:hover .buttonBox-button{
     width: 4.5rem;
+    @include desktop{
+      width: 5rem;
+    }
   }
 
   &-button {
