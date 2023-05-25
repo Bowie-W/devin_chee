@@ -5,10 +5,12 @@ import EPs from "./EPs";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import ScrollButtonBox from "./ScrollButtonBox";
 import Header from "./Header";
+import ErrorEp from "./ErrorEP";
 
-export default function MainPage({ eps }): JSX.Element {
+export default function MainPage({ eps, epErrorStatus, setEpErrorStatus }): JSX.Element {
 
   const parallax = useRef<IParallax>(null!);
+  console.log(epErrorStatus)
 
   return (
     <Parallax ref={parallax} pages={3} className={`mainPage_container blue`}>
@@ -87,7 +89,8 @@ export default function MainPage({ eps }): JSX.Element {
           ></img>
         </ParallaxLayer>
         <ParallaxLayer offset={2} speed={0.45} className="mainPage_layer2">
-          <EPs eps={eps} />
+          {epErrorStatus ? <ErrorEp/> :
+          <EPs eps={eps} />}
         </ParallaxLayer>
       </div>
     </Parallax>

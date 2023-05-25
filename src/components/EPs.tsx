@@ -6,12 +6,10 @@ function EPs({ eps }) {
   const [playerStatus, setPlayerStatus] = useState(false);
   const [tracklist, setTracklist] = useState([]);
 
-  console.log(eps)
+  console.log(eps.length)
   const playTrack = (event) => {
-    // console.log(event.target);
     let id = event.target.attributes.value.value;
     let foundEp = eps.find((ep) => ep._id === id);
-    // console.log(foundEp);
     setTracklist(foundEp.tracks);
     toggleplayer();
   };
