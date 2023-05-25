@@ -89,7 +89,7 @@ export default function MainPage({ eps, epErrorStatus, setEpErrorStatus }): JSX.
           ></img>
         </ParallaxLayer>
         <ParallaxLayer offset={2} speed={0.45} className="mainPage_layer2">
-          {epErrorStatus ? <ErrorEp/> :
+          {epErrorStatus | eps.length === 0 ? <ErrorEp/> :
           <EPs eps={eps} />}
         </ParallaxLayer>
       </div>
